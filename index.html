@@ -185,6 +185,43 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .hero-shade{background:radial-gradient(closest-side at 50% 50%,rgba(244,237,228,.95) 55%,rgba(244,237,228,.6) 80%,rgba(244,237,228,0) 100%)}
 }
 @media (prefers-reduced-motion:reduce){.scroll-hint span::after,.bubble.typing::after{animation:none}}
+/* Живые кнопки */
+.btn{position:relative;overflow:hidden;isolation:isolate;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .3s,background .3s,color .35s}
+.btn:active{transform:scale(.96)!important}
+.btn .roll{display:block;overflow:hidden;height:1.6em;line-height:1.6em}
+.btn .roll>span{display:block;transition:transform .5s cubic-bezier(.7,0,.2,1)}
+.btn .roll>span::after{content:attr(data-t);display:block}
+.btn:hover .roll>span{transform:translateY(-50%)}
+/* блик пробегает по главной кнопке */
+.btn-main::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.5) 50%,transparent 65%);transform:translateX(-130%);animation:shine 5s ease-in-out infinite}
+@keyframes shine{0%,72%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
+/* заливка кругом от курсора */
+.btn-line::after,.btn-dark::after{content:"";position:absolute;inset:0;z-index:-1;clip-path:circle(0 at var(--x,50%) var(--y,50%));transition:clip-path .55s cubic-bezier(.7,0,.2,1)}
+.btn-line::after{background:var(--graphite)}
+.btn-dark::after{background:var(--terracotta)}
+.btn-line:hover::after,.btn-dark:hover::after{clip-path:circle(160% at var(--x,50%) var(--y,50%))}
+.btn-line:hover{color:var(--sand);box-shadow:inset 0 0 0 1.5px var(--graphite)}
+/* «дыхание» главной кнопки на первом экране */
+.hero .btn-main{animation:breathe 2.8s ease-out infinite}
+@keyframes breathe{0%{box-shadow:0 16px 34px -14px rgba(200,85,61,.75),0 0 0 0 rgba(200,85,61,.45)}70%,100%{box-shadow:0 16px 34px -14px rgba(200,85,61,.75),0 0 0 16px rgba(200,85,61,0)}}
+/* волна от нажатия */
+.ripple{position:absolute;z-index:-1;border-radius:50%;background:rgba(255,255,255,.45);transform:translate(-50%,-50%) scale(0);animation:ripple .6s ease-out forwards;pointer-events:none}
+@keyframes ripple{to{transform:translate(-50%,-50%) scale(1);opacity:0}}
+/* стрелка «Открыть сайт» пролетает насквозь */
+.open i{overflow:hidden}
+.open i b{display:block;font-weight:800}
+.open:hover i{transform:none;background:var(--terracotta)}
+.open:hover i b{animation:fly .55s cubic-bezier(.7,0,.2,1)}
+@keyframes fly{45%{transform:translateX(140%)}46%{transform:translateX(-140%)}100%{transform:translateX(0)}}
+/* фильтры */
+.filters button{transition:background .25s,color .25s,box-shadow .25s,transform .3s cubic-bezier(.2,.8,.2,1)}
+.filters button:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 1.5px var(--graphite)}
+.filters button:active{transform:scale(.94)}
+.filters button.on{animation:pop .45s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{0%{transform:scale(.9)}100%{transform:scale(1)}}
+/* на телефоне «наведения» нет - после касания кнопка не должна оставаться залитой */
+@media (hover:none){.btn-line:hover::after,.btn-dark:hover::after{clip-path:circle(0 at 50% 50%)}.btn-line:hover{color:var(--graphite);box-shadow:inset 0 0 0 1.5px var(--line)}.btn:hover .roll>span{transform:none}.filters button:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.btn-main::before,.hero .btn-main,.open:hover i b,.filters button.on{animation:none}.btn .roll>span{transition:none}}
 </style>
 </head>
 <body>
@@ -367,7 +404,7 @@ var SITES = [
         '<div class="palette"><span>' + s.pal.map(function(c){ return '<i style="background:' + c + '"></i>'; }).join('') + '</span>палитра этого сайта</div>' +
         '<p>' + s.desc + '</p>' +
         '<div class="feat"><b>Фишка:</b> ' + s.feat + '</div>' +
-        '<a class="open" href="' + s.slug + '/" target="_blank" rel="noopener">Открыть сайт <i>→</i></a>' +
+        '<a class="open" href="' + s.slug + '/" target="_blank" rel="noopener">Открыть сайт <i><b>→</b></i></a>' +
       '</div>';
     works.appendChild(el);
   });
@@ -436,6 +473,26 @@ var SITES = [
   // --- подсветка ячеек бенто за мышкой ---
   document.querySelectorAll('.cell').forEach(function(c){
     c.addEventListener('mousemove', function(e){ var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+  });
+
+  // --- живые кнопки: текст прокручивается, заливка идёт от курсора, волна от нажатия, «магнит» ---
+  var finePointer = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  document.querySelectorAll('.btn').forEach(function(b){
+    var t = b.textContent.trim();
+    b.setAttribute('aria-label', t);
+    b.innerHTML = '<span class="roll" aria-hidden="true"><span data-t="' + t + '">' + t + '</span></span>';
+    b.addEventListener('pointerenter', function(e){ var r = b.getBoundingClientRect(); b.style.setProperty('--x', (e.clientX - r.left) + 'px'); b.style.setProperty('--y', (e.clientY - r.top) + 'px'); });
+    b.addEventListener('pointerleave', function(e){ var r = b.getBoundingClientRect(); b.style.setProperty('--x', (e.clientX - r.left) + 'px'); b.style.setProperty('--y', (e.clientY - r.top) + 'px'); b.style.transform = ''; });
+    b.addEventListener('pointerdown', function(e){
+      if (reduce) return;
+      var r = b.getBoundingClientRect(), d = Math.max(r.width, r.height) * 2.2, s = document.createElement('span');
+      s.className = 'ripple'; s.style.cssText = 'width:' + d + 'px;height:' + d + 'px;left:' + (e.clientX - r.left) + 'px;top:' + (e.clientY - r.top) + 'px';
+      b.appendChild(s); setTimeout(function(){ s.remove(); }, 650);
+    });
+    if (finePointer && !reduce) b.addEventListener('pointermove', function(e){
+      var r = b.getBoundingClientRect();
+      b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .18) + 'px,' + ((e.clientY - r.top - r.height / 2) * .3 - 2) + 'px)';
+    });
   });
 
   // если библиотеки не загрузились - всё уже видно, просто без анимаций
