@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лолита - торты на заказ в Казани</title>
+<meta name="description" content="Кондитерская «Лолита» в Казани: детские торты на день рождения, праздничные и свадебные торты на заказ, бенто, капкейки. Академика Глушко, 17. Рейтинг 4,6.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800;900&family=Nunito:wght@400;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fff8f0;--pink:#ff5c9a;--pink-2:#e8437f;--pink-l:#ffd9e7;--yellow:#ffd23f;--mint:#4fd1ae;--mint-l:#d4f6ec;--sky:#5cbcff;--sky-l:#d9efff;--lilac:#a98bff;--lilac-l:#ece5ff;--grape:#3a2350;--muted:#7a6585;--white:#fff;--line:#f1e1ea;--accent:#ff5c9a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var(--grape);line-height:1.6;font-size:17px;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+.demo{background:var(--grape);color:#f3e6ff;font-size:12.5px;text-align:center;padding:7px 16px}
+.rb{font-family:'Rubik',sans-serif}
+.hand{font-family:'Caveat',cursive}
+header{position:sticky;top:0;z-index:30;background:rgba(255,248,240,.86);backdrop-filter:blur(14px) saturate(160%)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{text-decoration:none;display:flex;align-items:center;gap:10px;font-family:'Rubik',sans-serif;font-weight:900;font-size:28px;color:var(--pink)}
+.logo i{width:40px;height:40px;border-radius:14px;display:grid;place-items:center;font-style:normal;font-size:22px;background:var(--yellow);transform:rotate(-8deg);box-shadow:0 6px 0 #e8b400}
+.logo small{display:block;font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:800;color:var(--muted);line-height:1}
+nav{display:flex;gap:28px;font-weight:800}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--pink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:17px 30px;font-family:'Rubik',sans-serif;font-weight:700;text-decoration:none;font-size:17px;border-radius:999px;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn-main{background:var(--pink);color:#fff;box-shadow:0 7px 0 var(--pink-2),0 18px 30px -12px rgba(255,92,154,.6)}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 9px 0 var(--pink-2),0 22px 34px -12px rgba(255,92,154,.7)}
+.btn-main:active{transform:translateY(4px);box-shadow:0 3px 0 var(--pink-2)}
+.btn-line{background:var(--white);color:var(--grape);box-shadow:0 7px 0 #ead8e2}
+.btn-line:hover{transform:translateY(-2px)}
+.btn-sm{padding:12px 20px;font-size:15px}
+/* Первый экран */
+.hero{position:relative;padding:40px 0 140px;overflow:hidden;background:radial-gradient(700px 500px at 85% 20%,#ffe3ee 0%,transparent 60%),radial-gradient(600px 500px at 0% 90%,#e3f6ff 0%,transparent 60%),var(--cream)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;position:relative;z-index:2}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);padding:9px 18px;border-radius:999px;font-weight:800;font-size:15px;box-shadow:0 6px 0 #f1dce6;margin-bottom:24px}
+h1{font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(42px,6.2vw,86px);line-height:.98;letter-spacing:-.02em}
+h1 .c1{color:var(--pink)}
+h1 .c2{color:var(--sky)}
+h1 .squig{position:relative;display:inline-block}
+h1 .squig svg{position:absolute;left:0;right:0;bottom:-14px;width:100%;height:18px}
+.lead{font-size:19px;color:var(--muted);margin:26px 0 34px;max-width:500px}
+.actions{display:flex;flex-wrap:wrap;gap:14px}
+.proof{display:flex;align-items:center;gap:14px;margin-top:40px}
+.proof .faces{display:flex}
+.proof .faces span{width:42px;height:42px;border-radius:50%;border:3px solid var(--cream);display:grid;place-items:center;font-size:20px;margin-left:-10px}
+.proof .faces span:first-child{margin-left:0}
+.proof b{font-family:'Rubik',sans-serif;font-size:22px}
+.proof small{display:block;color:var(--muted);font-size:14px;line-height:1.3}
+.stage{position:relative;aspect-ratio:1/1.08;max-width:540px;margin:0 auto;width:100%}
+.arch{position:absolute;inset:6% 8% 0;border-radius:999px 999px 46px 46px;overflow:hidden;background:var(--pink-l);border:10px solid var(--white);box-shadow:0 40px 70px -30px rgba(58,35,80,.45)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.spin-badge{position:absolute;right:-2%;top:2%;width:150px;height:150px;z-index:3}
+.spin-badge svg{width:100%;height:100%;animation:spin 16s linear infinite}
+.spin-badge b{position:absolute;inset:0;display:grid;place-items:center;font-size:44px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.bln{position:absolute;z-index:3;filter:drop-shadow(0 14px 14px rgba(58,35,80,.2))}
+.bln.a{left:-4%;top:14%;width:86px;animation:bob 6s ease-in-out infinite}
+.bln.b{left:6%;bottom:12%;width:64px;animation:bob 7s ease-in-out -3s infinite}
+.bln.c{right:4%;bottom:26%;width:72px;animation:bob 5.5s ease-in-out -1.5s infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-22px) rotate(5deg)}}
+.sticker{position:absolute;z-index:4;background:var(--yellow);color:var(--grape);font-family:'Caveat',cursive;font-weight:700;font-size:27px;line-height:1;padding:12px 18px;border-radius:18px;transform:rotate(-7deg);box-shadow:0 6px 0 #e8b400}
+.sticker.s1{left:0;bottom:6%}
+.sticker.s2{right:0;top:44%;background:var(--mint);box-shadow:0 6px 0 #2fb08c;transform:rotate(6deg);color:#fff}
+#confetti{position:absolute;inset:0;z-index:1;pointer-events:none}
+.wave{position:absolute;left:0;right:0;bottom:-1px;height:90px;z-index:2}
+.wave svg{width:100%;height:100%;display:block}
+@media (prefers-reduced-motion:reduce){.spin-badge svg,.bln{animation:none}}
+/* Разделы */
+section{padding:100px 0}
+.head{text-align:center;max-width:700px;margin:0 auto 50px}
+.eyebrow{font-family:'Caveat',cursive;font-size:30px;color:var(--pink);line-height:1;margin-bottom:6px}
+h2{font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(34px,4.8vw,62px);line-height:1.02;letter-spacing:-.02em}
+.head p{color:var(--muted);margin-top:14px;font-size:18px}
+/* Карусель 3D */
+.coverflow{position:relative;overflow:hidden;height:540px;perspective:1400px;user-select:none;touch-action:pan-y}
+/* без preserve-3d карточки ложатся по z-index - центральная всегда сверху, соседние не налезают */
+.cf-track{position:absolute;inset:0;perspective:1400px}
+.cf-card{position:absolute;left:50%;top:0;width:min(380px,74vw);height:500px;margin-left:calc(min(380px,74vw) / -2);border-radius:36px;overflow:hidden;background:var(--white);box-shadow:0 40px 70px -30px rgba(58,35,80,.5);transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s,filter .7s;cursor:pointer}
+.cf-card img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.cf-card .cap{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-radius:24px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.cf-card .cap b{font-family:'Rubik',sans-serif;font-size:19px;line-height:1.15}
+.cf-card .cap span{font-weight:800;color:var(--pink);white-space:nowrap;font-size:15px}
+.cf-card .zh-stock{top:14px;bottom:auto}
+.cf-nav{display:flex;justify-content:center;align-items:center;gap:18px;margin-top:26px}
+.cf-btn{width:58px;height:58px;border-radius:50%;border:0;background:var(--white);box-shadow:0 6px 0 #ead8e2;font-size:24px;cursor:pointer;color:var(--grape);transition:transform .2s}
+.cf-btn:hover{transform:translateY(-2px)}
+.dots{display:flex;gap:8px}
+.dots button{width:11px;height:11px;border-radius:999px;border:0;background:#e5cfdb;cursor:pointer;transition:width .3s,background .3s;padding:0}
+.dots button.on{width:32px;background:var(--pink)}
+.cf-cta{text-align:center;margin-top:26px}
+/* Плитки видов */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tile{position:relative;border-radius:34px;padding:28px 28px 0;overflow:hidden;min-height:340px;display:flex;flex-direction:column}
+.tile h3{font-family:'Rubik',sans-serif;font-weight:800;font-size:27px;line-height:1.1}
+.tile p{font-size:15.5px;margin:6px 0 10px;opacity:.85}
+.tile b{font-family:'Rubik',sans-serif;font-size:17px}
+.tile .ph{margin-top:auto;height:180px;border-radius:26px 26px 0 0;overflow:hidden;position:relative}
+.tile .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.tile:hover .ph img{transform:scale(1.08) rotate(1deg)}
+.tile .new{position:absolute;right:22px;top:22px;font-family:'Caveat',cursive;font-size:24px;font-weight:700;background:var(--white);border-radius:999px;padding:2px 14px;transform:rotate(8deg)}
+.t-pink{background:var(--pink-l)}.t-sky{background:var(--sky-l)}.t-mint{background:var(--mint-l)}.t-lilac{background:var(--lilac-l)}.t-yel{background:#fff1bf}.t-peach{background:#ffe1cf}
+.note{text-align:center;color:var(--muted);font-size:14px;margin-top:24px}
+/* Праздники: полароиды */
+.party{background:var(--grape);color:#fff;position:relative}
+.party .eyebrow{color:var(--yellow)}
+.party .head p{color:#d8c8e8}
+.polas{display:flex;justify-content:center;flex-wrap:wrap;gap:0}
+.pola{background:#fff;padding:12px 12px 52px;border-radius:10px;width:250px;box-shadow:0 30px 50px -20px rgba(0,0,0,.6);margin:0 -14px 24px;transition:transform .5s cubic-bezier(.2,.8,.2,1);position:relative}
+.pola img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px}
+.pola .t{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:'Caveat',cursive;font-size:26px;color:var(--grape);line-height:1}
+.pola:nth-child(1){transform:rotate(-8deg) translateY(16px)}
+.pola:nth-child(2){transform:rotate(4deg)}
+.pola:nth-child(3){transform:rotate(-3deg) translateY(-10px);z-index:2}
+.pola:nth-child(4){transform:rotate(7deg) translateY(10px)}
+.pola:nth-child(5){transform:rotate(-5deg)}
+.pola .zh-stock{top:20px;bottom:auto;right:20px;left:auto}
+.pola:hover{transform:rotate(0) translateY(-16px) scale(1.06);z-index:5}
+.party-cta{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.party-cta div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:26px;padding:24px}
+.party-cta i{font-style:normal;font-size:30px}
+.party-cta h3{font-family:'Rubik',sans-serif;font-size:19px;margin:8px 0 4px}
+.party-cta p{color:#d8c8e8;font-size:15.5px}
+.wave-top,.wave-bot{position:absolute;left:0;right:0;height:70px}
+.wave-top{top:-69px}.wave-bot{bottom:-69px;transform:scaleY(-1)}
+.wave-top svg,.wave-bot svg{width:100%;height:100%;display:block}
+/* Калькулятор */
+.calc{border-radius:44px;padding:54px;background:linear-gradient(135deg,#ffe3ee,#e7f4ff 55%,#e8fff6);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;box-shadow:0 40px 80px -50px rgba(58,35,80,.5)}
+.calc p{color:var(--muted);margin:12px 0 22px}
+.calc label{display:block;font-weight:800;margin:20px 0 10px;font-size:17px}
+input[type=range]{width:100%;accent-color:var(--pink);height:30px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--white);color:var(--grape);border:0;border-radius:999px;padding:11px 18px;font:800 15px 'Nunito',sans-serif;cursor:pointer;box-shadow:0 4px 0 #ead8e2;transition:.2s}
+.chip.on{background:var(--grape);color:#fff;box-shadow:0 4px 0 #22132f}
+.result{text-align:center;background:var(--white);border-radius:36px;padding:30px 24px 34px;box-shadow:0 8px 0 #ead8e2}
+.sum{font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(46px,5.4vw,66px);line-height:1;color:var(--pink)}
+.result small{display:block;color:var(--muted);margin:10px 0 22px}
+.cake{height:220px;display:flex;flex-direction:column-reverse;align-items:center;padding-bottom:14px;position:relative}
+.cake .plate{position:absolute;bottom:4px;width:250px;height:30px;border-radius:50%;background:radial-gradient(ellipse,#fff,#e6dcef);box-shadow:0 14px 18px -10px rgba(58,35,80,.4)}
+.tier{position:relative;border-radius:18px 18px 12px 12px;margin-bottom:-4px;transition:height .5s cubic-bezier(.2,.8,.2,1),width .5s,opacity .4s,transform .5s cubic-bezier(.3,1.6,.5,1)}
+.tier::before{content:"";position:absolute;left:0;right:0;top:0;height:22px;border-radius:18px 18px 50% 50%/18px 18px 14px 14px;background:#fff}
+.tier::after{content:"";position:absolute;left:8%;right:8%;top:30px;height:10px;background:radial-gradient(circle,var(--yellow) 2.5px,transparent 3px) 0 0/16px 10px repeat-x}
+.tier.t1{width:220px;height:72px;background:var(--pink)}
+.tier.t2{width:160px;height:62px;background:var(--sky)}
+.tier.t3{width:104px;height:54px;background:var(--mint)}
+.tier.hide{opacity:0;height:0;transform:translateY(-40px) scale(.6);margin:0}
+.candle{width:10px;height:34px;border-radius:4px;background:repeating-linear-gradient(-45deg,#fff 0 5px,var(--lilac) 5px 10px);position:relative;margin-bottom:-2px}
+.candle::before{content:"";position:absolute;left:50%;top:-18px;width:12px;height:18px;margin-left:-6px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 70%,#fff6b0,#ffb300 60%,#ff6a00);animation:flame 1s ease-in-out infinite alternate;transform-origin:50% 100%}
+@keyframes flame{to{transform:scale(.85,1.12) rotate(3deg)}}
+/* Шаги */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.step{background:var(--white);border-radius:30px;padding:28px;box-shadow:0 8px 0 #f1e1ea;position:relative}
+.step .n{width:52px;height:52px;border-radius:18px;display:grid;place-items:center;font-family:'Rubik',sans-serif;font-weight:900;font-size:24px;color:#fff;margin-bottom:16px;transform:rotate(-6deg)}
+.step h3{font-family:'Rubik',sans-serif;font-size:19px;margin-bottom:4px}
+.step p{color:var(--muted);font-size:15.5px}
+.rev{text-align:center;margin-top:34px;font-family:'Caveat',cursive;font-size:30px;line-height:1.2}
+.rev a{color:var(--pink);font-family:'Nunito',sans-serif;font-size:16px;font-weight:800}
+#voprosy .faq details{background:var(--white);border:0;box-shadow:0 5px 0 #f1e1ea;border-radius:22px}
+.contacts{display:grid;grid-template-columns:1fr 1.3fr;gap:20px}
+.c-card{background:var(--white);border-radius:36px;padding:40px;box-shadow:0 8px 0 #f1e1ea}
+.c-row{padding:15px 0;border-bottom:2px dashed var(--line)}
+.c-row:last-of-type{border:0}
+.c-row small{display:block;color:var(--muted);font-size:14px}
+.c-row b{font-size:19px}
+.c-card .actions{margin-top:24px}
+.map{border-radius:36px;overflow:hidden;min-height:400px;border:8px solid var(--white);box-shadow:0 8px 0 #f1e1ea}
+.map iframe{width:100%;height:100%;min-height:384px;border:0;display:block}
+footer{padding:34px 0 100px;text-align:center;color:var(--muted);font-size:14px}
+.mobile-bar{display:none}
+@media (max-width:960px){
+  nav{display:none}
+  .hero .wrap,.contacts,.calc{grid-template-columns:1fr}
+  .hero{padding-bottom:120px}
+  .stage{max-width:430px}
+  .tiles{grid-template-columns:1fr 1fr}
+  .steps,.party-cta{grid-template-columns:1fr 1fr}
+  .calc{padding:30px 20px}
+  .coverflow{height:470px}
+  .cf-card{height:430px}
+  section{padding:70px 0}
+  .mobile-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;gap:10px;padding:10px 14px;background:rgba(255,248,240,.95);backdrop-filter:blur(12px);box-shadow:0 -6px 20px rgba(58,35,80,.1)}
+  .mobile-bar .btn{flex:1;padding:14px}
+}
+@media (max-width:600px){
+  header .btn-sm{display:none}
+  .tiles,.steps,.party-cta{grid-template-columns:1fr}
+  .actions .btn{width:100%}
+  .spin-badge{width:110px;height:110px}
+  .pola{width:46%;margin:0 -3% 18px}
+  .sticker{font-size:22px}
+}
+.hero .wrap > *,.contacts > *,.calc > *{min-width:0}
+/* узкий телефон: декор не должен закрывать торт */
+@media (max-width:420px){
+  .bln.a,.bln.c{display:none}
+  .bln.b{width:46px;left:0;bottom:22%}
+  .spin-badge{width:86px;height:86px;right:0;top:0}
+  .spin-badge b{font-size:28px}
+  .sticker{font-size:18px;padding:8px 12px}
+  .sticker.s2{top:auto;bottom:22%;right:0}
+  .arch{inset:8% 4% 0;border-width:6px}
+  .pola{width:47%;margin:0 -2% 14px;padding:8px 8px 40px}
+  .pola .t{font-size:20px;bottom:10px}
+  .pola .zh-stock{top:12px;right:12px}
+}
+.arch span.zh-stock{top:auto;left:auto;right:18px;bottom:18px}
+@media (max-width:420px){
+  .tile .new{position:static;display:inline-block;align-self:flex-start;margin-bottom:8px;transform:rotate(-3deg)}
+  .cf-card .cap{flex-direction:column;align-items:flex-start;gap:2px;padding:12px 14px}
+  .cf-card .cap b{font-size:17px}
+}@media (max-width:420px){.pola span.zh-stock{font-size:9px!important;padding:2px 6px!important}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-проект: пример сайта для кондитерской. Компания его пока не заказывала.</div>
+
+<header>
+  <div class="wrap">
+    <a href="#" class="logo"><i>🎂</i><span>Лолита<small>торты на заказ</small></span></a>
+    <nav>
+      <a href="#torty">Торты</a>
+      <a href="#prazdnik">Детский праздник</a>
+      <a href="#raschet">Цена</a>
+      <a href="#kontakty">Контакты</a>
+    </nav>
+    <a class="btn btn-main btn-sm" href="tel:+78432487502">8 (843) 248-75-02</a>
+  </div>
+</header>
+
+<section class="hero" style="padding-top:40px">
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <div class="badge">🎈 Торты на заказ · Казань, Советский район</div>
+      <h1>Торт, от которого <span class="c1">дети</span> <span class="squig c2">визжат<svg viewBox="0 0 200 18" preserveAspectRatio="none" aria-hidden="true"><path d="M2 10 Q 20 2 38 10 T 74 10 T 110 10 T 146 10 T 198 10" fill="none" stroke="#ffd23f" stroke-width="6" stroke-linecap="round"/></svg></span> от радости</h1>
+      <p class="lead">Детские торты с любимыми героями, радугой и сюрпризом внутри. А ещё праздничные, свадебные, бенто и капкейки - кондитер нарисует эскиз под вашу идею.</p>
+      <div class="actions">
+        <a class="btn btn-main magnet" href="#raschet">🎂 Рассчитать цену торта</a>
+        <a class="btn btn-line magnet" href="tel:+78432487502">📞 Позвонить</a>
+      </div>
+      <div class="proof">
+        <div class="faces"><span style="background:var(--pink-l)">😍</span><span style="background:var(--sky-l)">🥳</span><span style="background:var(--mint-l)">😋</span></div>
+        <div><b><span data-count="4.6" data-dec="1">4,6</span> ★</b><small>72 отзыва на Google Картах<br>звоните до 18:00</small></div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="arch"><img src="https://images.unsplash.com/photo-1710854898152-faf6d7d73294?auto=format&fit=crop&w=1000&q=80" alt="Двухъярусный детский торт с радугой"></div>
+      <div class="spin-badge" aria-hidden="true">
+        <svg viewBox="0 0 150 150"><defs><path id="circ" d="M75 75 m-56 0 a56 56 0 1 1 112 0 a56 56 0 1 1 -112 0"/></defs><circle cx="75" cy="75" r="74" fill="#ffd23f"/><text font-family="Rubik" font-weight="800" font-size="15" letter-spacing="3" fill="#3a2350"><textPath href="#circ">ТОРТЫ НА ЗАКАЗ • КАЗАНЬ • С ЛЮБОВЬЮ •</textPath></text></svg>
+        <b>🍰</b>
+      </div>
+      <svg class="bln a" viewBox="0 0 60 90" aria-hidden="true"><ellipse cx="30" cy="30" rx="26" ry="30" fill="#ff5c9a"/><ellipse cx="21" cy="19" rx="6" ry="9" fill="#fff" opacity=".45"/><path d="M27 60 l3 5 l3-5z" fill="#e8437f"/><path d="M30 65 q-6 10 0 25" stroke="#c7a" stroke-width="1.5" fill="none"/></svg>
+      <svg class="bln b" viewBox="0 0 60 90" aria-hidden="true"><ellipse cx="30" cy="30" rx="26" ry="30" fill="#5cbcff"/><ellipse cx="21" cy="19" rx="6" ry="9" fill="#fff" opacity=".45"/><path d="M27 60 l3 5 l3-5z" fill="#3a9be0"/><path d="M30 65 q6 10 0 25" stroke="#79a" stroke-width="1.5" fill="none"/></svg>
+      <svg class="bln c" viewBox="0 0 60 90" aria-hidden="true"><ellipse cx="30" cy="30" rx="26" ry="30" fill="#4fd1ae"/><ellipse cx="21" cy="19" rx="6" ry="9" fill="#fff" opacity=".45"/><path d="M27 60 l3 5 l3-5z" fill="#2fb08c"/><path d="M30 65 q-6 10 0 25" stroke="#7a9" stroke-width="1.5" fill="none"/></svg>
+      <div class="sticker s1">эскиз под вашу идею!</div>
+      <div class="sticker s2">от 1,5 кг</div>
+    </div>
+  </div>
+  <div class="wave"><svg viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50 C 180 0 360 90 540 50 S 900 0 1080 45 S 1320 80 1440 40 V90 H0z" fill="#fff"/></svg></div>
+</section>
+
+<section id="torty" style="background:#fff;padding-top:40px">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">листайте!</div>
+      <h2>Торты, которые ждут ваш праздник</h2>
+      <p>Нажмите на торт сбоку или листайте пальцем. Понравился - позвоните, и кондитер сделает похожий.</p>
+    </div>
+    <div class="coverflow" id="cf" aria-roledescription="карусель">
+      <div class="cf-track" id="cfTrack"></div>
+    </div>
+    <div class="cf-nav">
+      <button class="cf-btn" id="cfPrev" type="button" aria-label="Предыдущий торт">←</button>
+      <div class="dots" id="cfDots"></div>
+      <button class="cf-btn" id="cfNext" type="button" aria-label="Следующий торт">→</button>
+    </div>
+    <div class="cf-cta"><a class="btn btn-main" id="cfCall" href="tel:+78432487502">Хочу такой торт</a></div>
+    <p class="note">Фото-примеры. На сайте кондитерской здесь будут её работы. Цены примерные - хозяйка поправит их под себя.</p>
+  </div>
+</section>
+
+<section style="background:#fff;padding-top:0">
+  <div class="wrap">
+    <div class="head"><div class="eyebrow">что печём</div><h2>На любой повод</h2></div>
+    <div class="tiles">
+      <div class="tile t-pink tilt glare"><span class="new">хит!</span><h3>Детские</h3><p>Герои мультиков, единороги, машинки, радуга</p><b>от 2 200 ₽/кг</b><div class="ph"><img src="https://images.unsplash.com/photo-1741969494234-7d4bcd1002ab?auto=format&fit=crop&w=700&q=80" alt="Детский торт с радугой и мишкой" loading="lazy"></div></div>
+      <div class="tile t-sky tilt glare"><h3>На день рождения</h3><p>Со свечами, надписью и сюрпризом внутри</p><b>от 2 000 ₽/кг</b><div class="ph"><img src="https://images.unsplash.com/photo-1694043325785-d841a964257f?auto=format&fit=crop&w=700&q=80" alt="Торт с посыпкой и свечами" loading="lazy"></div></div>
+      <div class="tile t-mint tilt glare"><h3>Радужный внутри</h3><p>Разноцветные коржи - вау-эффект при разрезе</p><b>от 2 300 ₽/кг</b><div class="ph"><img src="https://images.unsplash.com/photo-1622576890453-8e50b6f7d5b0?auto=format&fit=crop&w=700&q=80" alt="Радужный торт в разрезе" loading="lazy"></div></div>
+      <div class="tile t-lilac tilt glare"><h3>Свадебные</h3><p>Многоярусные, с цветами и золотом</p><b>от 2 500 ₽/кг</b><div class="ph"><img src="https://images.unsplash.com/photo-1693059740560-21151639561f?auto=format&fit=crop&w=700&q=80" alt="Белый торт с золотым декором" loading="lazy"></div></div>
+      <div class="tile t-yel tilt glare"><span class="new">новинка</span><h3>Бенто</h3><p>Мини-торт с надписью - на двоих или для мамы</p><b>от 1 300 ₽</b><div class="ph"><img src="https://images.unsplash.com/photo-1627013817723-3bbb5166cc50?auto=format&fit=crop&w=700&q=80" alt="Маленький мятный торт с вишнями" loading="lazy"></div></div>
+      <div class="tile t-peach tilt glare"><h3>Капкейки</h3><p>Кексы с кремом - удобно раздать гостям</p><b>от 200 ₽/шт</b><div class="ph"><img src="https://images.unsplash.com/photo-1710854897930-b4f968487924?auto=format&fit=crop&w=700&q=80" alt="Капкейки и торт на праздничном столе" loading="lazy"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="prazdnik" class="party">
+  <div class="wave-top"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 240 0 480 70 720 35 S 1200 0 1440 40 V70 H0z" fill="#3a2350"/></svg></div>
+  <div class="wrap">
+    <div class="head"><div class="eyebrow">детский праздник</div><h2>Торт - главный герой дня рождения</h2><p>Свечи, загадывание желания, восторг в глазах - ради этого момента мы и печём.</p></div>
+    <div class="polas">
+      <div class="pola"><img src="https://images.unsplash.com/photo-1608790672275-309c02d888ff?auto=format&fit=crop&w=500&q=80" alt="Дети задувают свечи на торте" loading="lazy"><span class="t">загадали желание!</span></div>
+      <div class="pola"><img src="https://images.unsplash.com/photo-1509666537727-9154b6962292?auto=format&fit=crop&w=500&q=80" alt="Девочки в праздничных колпаках" loading="lazy"><span class="t">лучшие подружки</span></div>
+      <div class="pola"><img src="https://images.unsplash.com/photo-1688632107202-7902806ff3d4?auto=format&fit=crop&w=500&q=80" alt="Дети режут праздничный торт" loading="lazy"><span class="t">режем торт</span></div>
+      <div class="pola"><img src="https://images.unsplash.com/photo-1615445565741-c60a9edd393f?auto=format&fit=crop&w=500&q=80" alt="Мальчик в колпаке с воздушными шарами" loading="lazy"><span class="t">именинник</span></div>
+      <div class="pola"><img src="https://images.unsplash.com/photo-1531956531700-dc0ee0f1f9a5?auto=format&fit=crop&w=500&q=80" alt="Яркий праздничный стол с колпаками и тарелками" loading="lazy"><span class="t">всё готово!</span></div>
+    </div>
+    <div class="party-cta">
+      <div><i>🦄</i><h3>Любимый герой</h3><p>Принесите картинку героя - кондитер сделает фигурку или рисунок на торте.</p></div>
+      <div><i>🎁</i><h3>Сюрприз внутри</h3><p>Радужные коржи или конфетти из драже - уточните, что можно сделать к вашей дате.</p></div>
+      <div><i>🧁</i><h3>Сладкий стол</h3><p>Капкейки к торту - каждому гостю по своему, без ножа и тарелок.</p></div>
+    </div>
+  </div>
+  <div class="wave-bot"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 240 0 480 70 720 35 S 1200 0 1440 40 V70 H0z" fill="#3a2350"/></svg></div>
+</section>
+
+<section id="raschet" style="padding-top:150px">
+  <div class="wrap">
+    <div class="calc">
+      <div>
+        <div class="eyebrow">посчитаем?</div>
+        <h2>Сколько будет стоить торт</h2>
+        <p>Двигайте ползунок - торт вырастет под число гостей, а ниже появится примерная цена.</p>
+        <label for="range">Гостей: <span id="guests">12</span></label>
+        <input type="range" id="range" min="4" max="80" value="12">
+        <label>Повод</label>
+        <div class="chips" id="chips">
+          <button class="chip on" data-price="2000" type="button">День рождения</button>
+          <button class="chip" data-price="2200" type="button">Детский</button>
+          <button class="chip" data-price="2500" type="button">Свадьба</button>
+          <button class="chip" data-price="2400" type="button">С цветами</button>
+        </div>
+      </div>
+      <div class="result">
+        <div class="cake" aria-hidden="true">
+          <div class="plate"></div>
+          <div class="tier t1"></div>
+          <div class="tier t2" id="t2"></div>
+          <div class="tier t3" id="t3"></div>
+          <div class="candle"></div>
+        </div>
+        <div class="sum"><span id="sum">4 000</span> ₽</div>
+        <small>примерно <span id="kg">2</span> кг · по 150 г на гостя<br>без сложного декора и доставки<br><b style="color:var(--grape)">Заказывайте за 3-5 дней, свадебный - за 2-3 недели</b></small>
+        <a class="btn btn-main" href="tel:+78432487502">Позвонить кондитеру</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><div class="eyebrow">как заказать</div><h2>4 шага до торта на столе</h2></div>
+    <div class="steps">
+      <div class="step"><div class="n" style="background:var(--pink)">1</div><h3>Позвоните</h3><p>Расскажите про праздник, гостей и пожелания.</p></div>
+      <div class="step"><div class="n" style="background:var(--sky)">2</div><h3>Эскиз и вкус</h3><p>Покажем эскиз, поможем выбрать начинку.</p></div>
+      <div class="step"><div class="n" style="background:var(--mint)">3</div><h3>Предоплата</h3><p>Фиксируем дату. Размер предоплаты и условия возврата скажем заранее.</p></div>
+      <div class="step"><div class="n" style="background:var(--lilac)">4</div><h3>Забираете</h3><p>Самовывоз с Академика Глушко, 17 или доставка - её цену назовём при заказе.</p></div>
+    </div>
+    <p class="rev">Рейтинг 4,6 из 72 отзывов на Google Картах<br><a href="https://www.google.com/maps/search/?api=1&query=Лолита+Академика+Глушко+17+Казань" target="_blank" rel="noopener">читать отзывы</a></p>
+  </div>
+</section>
+
+<section id="voprosy" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="faq-h">Частые вопросы</h2>
+    <div class="faq">
+      <details><summary>Какая предоплата и вернут ли её?</summary><p>Размер предоплаты и условия возврата кондитер скажет при заказе - до того, как вы что-то оплатите. Попросите записать их в чек или переписку.</p></details>
+      <details><summary>За сколько дней заказывать торт?</summary><p>Лучше за 3-5 дней, свадебный - заранее, за 2-3 недели. Срочные заказы - по договорённости.</p></details>
+      <details><summary>Сделаете торт с героем мультика?</summary><p>Принесите или покажите картинку - кондитер скажет, как лучше сделать: фигуркой, рисунком или топпером, и сколько это будет стоить.</p></details>
+      <details><summary>Как оплатить?</summary><p>По данным Google Карт, принимают банковские карты и бесконтактную оплату. Забрать торт можно в кондитерской на Академика Глушко, 17.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="kontakty" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><div class="eyebrow">ждём вас</div><h2>Приходите за тортом</h2></div>
+    <div class="contacts">
+      <div class="c-card">
+        <div class="c-row"><small>Адрес</small><b>Казань, ул. Академика Глушко, 17</b></div>
+        <div class="c-row"><small>Телефон</small><b><a href="tel:+78432487502">8 (843) 248-75-02</a></b></div>
+        <div class="c-row"><small>Время работы</small><b>До 18:00</b><small>Точный график - по телефону</small></div>
+        <div class="actions">
+          <a class="btn btn-main" href="tel:+78432487502">Позвонить</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&destination=55.7849258,49.2315687" target="_blank" rel="noopener">Маршрут</a>
+        </div>
+      </div>
+      <div class="map"><iframe src="https://www.google.com/maps?q=55.7849258,49.2315687&z=16&output=embed" loading="lazy" title="Карта: Лолита"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© Кондитерская «Лолита», Казань · Демо-проект</div></footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-line" href="#raschet">Цена</a>
+  <a class="btn btn-main" href="tel:+78432487502">Позвонить</a>
+</div>
+
+<script>
+// Карусель тортов в 3D: центральный крупно, соседние развёрнуты. Листается сама, стрелками, точками и пальцем.
+(function(){
+  var cakes = [
+    ['1765947379428-dea2cf670da8', 'Торт-замок для двойни', 'от 2 500 ₽/кг'],
+    ['1741969494234-7d4bcd1002ab', 'Радуга и мишка', 'от 2 200 ₽/кг'],
+    ['1558301211-0d8c8ddee6ec', 'Розовая глазурь и вишни', 'от 2 200 ₽/кг'],
+    ['1759922550477-19632d9ce30b', 'Подводный мир', 'от 2 300 ₽/кг'],
+    ['1624893235207-1408ecb9b271', 'Розовый со свечами', 'от 2 000 ₽/кг'],
+    ['1621303837174-89787a7d4729', 'С мороженым и посыпкой', 'от 2 200 ₽/кг'],
+    ['1600653155864-88227b5b64b0', 'Радужный в разрезе', 'от 2 300 ₽/кг'],
+    ['1617922784605-041e1e1a5d8e', 'Пастельные завитки', 'от 2 200 ₽/кг']
+  ];
+  var track = document.getElementById('cfTrack'), dots = document.getElementById('cfDots');
+  var cards = [], cur = 0, n = cakes.length, timer;
+  cakes.forEach(function(c, i){
+    var el = document.createElement('div');
+    el.className = 'cf-card';
+    el.innerHTML = '<img src="https://images.unsplash.com/photo-' + c[0] + '?auto=format&fit=crop&w=760&q=80" alt="' + c[1] + '" loading="lazy"><div class="cap"><b>' + c[1] + '</b><span>' + c[2] + '</span></div>';
+    el.addEventListener('click', function(){ go(i); });
+    track.appendChild(el); cards.push(el);
+    var d = document.createElement('button'); d.type = 'button'; d.setAttribute('aria-label', 'Торт ' + (i + 1));
+    d.addEventListener('click', function(){ go(i); });
+    dots.appendChild(d);
+  });
+  function layout(){
+    var wide = innerWidth > 700;
+    cards.forEach(function(el, i){
+      var o = i - cur;
+      if (o > n / 2) o -= n; if (o < -n / 2) o += n;
+      var a = Math.abs(o);
+      el.style.transform = 'translateX(' + o * (wide ? 62 : 52) + '%) translateZ(' + (-a * 180) + 'px) rotateY(' + (-o * 32) + 'deg)';
+      el.style.opacity = a > 2 ? 0 : 1;
+      el.style.zIndex = 10 - a;
+      el.style.filter = a ? 'saturate(.75) brightness(.92)' : 'none';
+      el.style.pointerEvents = a > 2 ? 'none' : 'auto';
+      el.setAttribute('aria-hidden', a ? 'true' : 'false');
+    });
+    dots.querySelectorAll('button').forEach(function(d, i){ d.classList.toggle('on', i === cur); });
+  }
+  function go(i){ cur = (i + n) % n; layout(); restart(); }
+  function restart(){
+    clearInterval(timer);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(function(){ go(cur + 1); }, 3800);
+  }
+  document.getElementById('cfPrev').addEventListener('click', function(){ go(cur - 1); });
+  document.getElementById('cfNext').addEventListener('click', function(){ go(cur + 1); });
+  var cf = document.getElementById('cf'), x0 = null;
+  cf.addEventListener('mouseenter', function(){ clearInterval(timer); });
+  cf.addEventListener('mouseleave', restart);
+  cf.addEventListener('pointerdown', function(e){ x0 = e.clientX; });
+  cf.addEventListener('pointerup', function(e){ if (x0 === null) return; var dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1)); });
+  window.addEventListener('resize', layout);
+  layout(); restart();
+})();
+
+// Калькулятор: 150 г на гостя, минимум 1,5 кг, цена за кг зависит от повода.
+// Торт растёт: до 20 гостей - один ярус, до 45 - два, больше - три.
+(function(){
+  var range = document.getElementById('range'), price = 2000;
+  var t2 = document.getElementById('t2'), t3 = document.getElementById('t3');
+  function calc(){
+    var g = +range.value;
+    var kg = Math.max(1.5, Math.round(g * 0.15 * 2) / 2);
+    document.getElementById('guests').textContent = g;
+    document.getElementById('kg').textContent = String(kg).replace('.', ',');
+    document.getElementById('sum').textContent = Math.round(kg * price).toLocaleString('ru-RU');
+    t2.classList.toggle('hide', g <= 20);
+    t3.classList.toggle('hide', g <= 45);
+  }
+  range.addEventListener('input', calc);
+  document.querySelectorAll('#chips .chip').forEach(function(c){
+    c.addEventListener('click', function(){
+      document.querySelectorAll('#chips .chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      price = +c.getAttribute('data-price');
+      calc();
+    });
+  });
+  calc();
+})();
+
+// Лёгкое конфетти в первом экране
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var cv = document.getElementById('confetti'), ctx = cv.getContext('2d'), bits = [];
+  var cols = ['#ff5c9a','#ffd23f','#4fd1ae','#5cbcff','#a98bff'];
+  function size(){ cv.width = cv.offsetWidth; cv.height = cv.offsetHeight; }
+  size(); window.addEventListener('resize', size);
+  for (var i = 0; i < 46; i++) bits.push({ x: Math.random(), y: Math.random(), s: 5 + Math.random() * 7, v: .0006 + Math.random() * .0012, r: Math.random() * 6, w: (Math.random() - .5) * .002, c: cols[i % cols.length], round: i % 3 === 0 });
+  (function draw(){
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    bits.forEach(function(b){
+      b.y += b.v; b.x += b.w; b.r += .03;
+      if (b.y > 1.05) { b.y = -.05; b.x = Math.random(); }
+      ctx.save(); ctx.translate(b.x * cv.width, b.y * cv.height); ctx.rotate(b.r); ctx.fillStyle = b.c; ctx.globalAlpha = .75;
+      if (b.round) { ctx.beginPath(); ctx.arc(0, 0, b.s / 2, 0, 7); ctx.fill(); } else ctx.fillRect(-b.s / 2, -b.s / 4, b.s, b.s / 2);
+      ctx.restore();
+    });
+    requestAnimationFrame(draw);
+  })();
+})();
+</script>
+<script src="../_obshee/zhivoe.js" defer></script>
+</body>
+</html>

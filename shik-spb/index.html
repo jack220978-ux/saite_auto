@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ателье ШИК - Петроградская сторона</title>
+<meta name="description" content="Ателье «ШИК» в Санкт-Петербурге: подгонка одежды по фигуре, укорачивание брюк, замена молний, ремонт верхней одежды, индивидуальный пошив. Ординарная, 19.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#f5f0ea;--ivory-2:#ece4da;--ink:#141112;--wine:#7b2a3b;--wine-2:#5e1f2c;--muted:#7d726c;--line:#ddd3c8;--white:#fffdfa;--tape:#f2d16b;--accent:#7b2a3b}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',system-ui,sans-serif;background:var(--ivory);color:var(--ink);line-height:1.65;font-size:17.5px;font-weight:400;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.demo{background:var(--ink);color:#cfc5bc;font-size:12.5px;text-align:center;padding:7px 16px}
+.pr{font-family:'Prata',Georgia,serif;font-weight:400}
+header{position:sticky;top:0;z-index:30;background:rgba(245,240,234,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{font-family:'Prata',serif;font-size:30px;text-decoration:none;letter-spacing:.14em}
+.logo small{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.1em;color:var(--muted);margin-left:10px;font-weight:500}
+nav{display:flex;gap:32px;font-weight:500}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--wine)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 32px;font-weight:500;text-decoration:none;font-size:16px;transition:background .3s,color .3s;border-radius:0;letter-spacing:.02em}
+.btn-main{background:var(--ink);color:var(--ivory)}
+.btn-main:hover{background:var(--wine)}
+.btn-line{border:1px solid var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--ivory)}
+.btn-sm{padding:11px 20px;font-size:15px}
+/* Первый экран: журнальная обложка */
+.hero{position:relative;overflow:hidden;padding:30px 0 0}
+.giant{position:absolute;right:-3%;top:44%;transform:translateY(-50%);font-family:'Prata',serif;font-size:min(30vw,420px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(123,42,59,.16);letter-spacing:.02em;white-space:nowrap;pointer-events:none;z-index:0}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center;min-height:min(calc(100vh - 140px),720px)}
+.place{font-weight:500;color:var(--wine);margin-bottom:22px}
+h1{font-family:'Prata',serif;font-weight:400;font-size:clamp(44px,6vw,84px);line-height:1.02;letter-spacing:-.01em}
+h1 .rotator{font-style:italic;color:var(--wine)}
+.hero p{font-size:19px;color:var(--muted);margin:24px 0 32px;max-width:460px;font-weight:300}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.meta{display:flex;gap:40px;margin-top:44px}
+.meta b{font-family:'Prata',serif;font-size:38px;font-weight:400;display:block;line-height:1}
+.meta small{color:var(--muted);font-size:14px}
+.covers{position:relative;height:620px}
+.covers .c1{position:absolute;right:16%;top:0;width:62%;height:84%;overflow:hidden;box-shadow:0 50px 80px -40px rgba(20,17,18,.55)}
+.covers .c2{position:absolute;right:0;bottom:0;width:42%;height:52%;overflow:hidden;border:10px solid var(--ivory);box-shadow:0 40px 60px -30px rgba(20,17,18,.5)}
+.covers img{width:100%;height:100%;object-fit:cover}
+.covers .c1 .zh-stock{left:12px;right:auto;top:12px;bottom:auto}
+.covers .lbl{position:absolute;left:0;bottom:12%;z-index:3;background:var(--wine);color:#fff;padding:16px 20px;font-family:'Prata',serif;font-size:21px;line-height:1.2;max-width:230px}
+.covers .lbl small{display:block;font-family:'Jost',sans-serif;font-size:13px;opacity:.8;margin-top:4px}
+/* Сантиметровая лента: едет при прокрутке */
+.tape{height:58px;background:var(--tape);overflow:hidden;position:relative;border-top:1px solid #d9b84f;border-bottom:1px solid #d9b84f;margin-top:60px}
+.tape-in{position:absolute;left:0;top:0;height:100%;width:6000px;will-change:transform;background:repeating-linear-gradient(90deg,rgba(20,17,18,.75) 0 1px,transparent 1px 10px) 0 0/10px 14px repeat-x,repeating-linear-gradient(90deg,rgba(20,17,18,.85) 0 1.5px,transparent 1.5px 50px) 0 0/50px 24px repeat-x,repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 100px) 0 0/100px 32px repeat-x}
+.tape-in span{position:absolute;top:30px;font:600 14px 'Jost',sans-serif;color:var(--ink)}
+.tape-in em{position:absolute;top:22px;font-style:normal;font-family:'Prata',serif;font-size:20px;color:var(--wine);white-space:nowrap}
+/* Разделы */
+section{padding:110px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:50px}
+h2{font-family:'Prata',serif;font-weight:400;font-size:clamp(36px,4.8vw,64px);line-height:1.04;letter-spacing:-.01em}
+h2 i{color:var(--wine)}
+.head p{color:var(--muted);max-width:420px;font-weight:300}
+/* Услуги: список с фото за курсором */
+.svc{border-top:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:70px 1.2fr 1.4fr auto;gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line);text-decoration:none;position:relative;transition:padding .35s,color .35s}
+.row:hover{padding-left:16px;color:var(--wine)}
+.row .n{font-family:'Prata',serif;color:var(--muted);font-size:18px}
+.row h3{font-family:'Prata',serif;font-weight:400;font-size:clamp(24px,2.6vw,34px);line-height:1.1}
+.row p{color:var(--muted);font-weight:300;font-size:16px}
+.row b{font-family:'Prata',serif;font-weight:400;font-size:24px;white-space:nowrap}
+.peek{position:fixed;left:0;top:0;width:260px;height:320px;pointer-events:none;z-index:50;opacity:0;transform:translate(-50%,-50%) scale(.8) rotate(-4deg);transition:opacity .3s,transform .4s cubic-bezier(.2,.8,.2,1);overflow:hidden;box-shadow:0 40px 60px -20px rgba(20,17,18,.5)}
+.peek.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-4deg)}
+.peek img{width:100%;height:100%;object-fit:cover}
+.note{color:var(--muted);font-size:14px;margin-top:22px}
+/* Почему мы */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.split .ph{position:relative;aspect-ratio:4/5;overflow:hidden}
+.split .ph img{width:100%;height:100%;object-fit:cover}
+.split .ph::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.6);pointer-events:none}
+.list > div{display:grid;grid-template-columns:50px 1fr;gap:10px;padding:22px 0;border-top:1px solid var(--line)}
+.list b{font-family:'Prata',serif;font-weight:400;font-size:26px;color:var(--wine);line-height:1}
+.list h3{font-size:18.5px;font-weight:600}
+.list p{color:var(--muted);font-weight:300;font-size:16px}
+/* Шаги - тёмный винный блок */
+.dark{background:var(--wine-2);color:var(--ivory)}
+.dark .head p{color:#e2c7cd}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.15)}
+.step{background:var(--wine-2);padding:34px 28px}
+.step b{font-family:'Prata',serif;font-weight:400;font-size:56px;line-height:1;color:#e9b9c3}
+.step h3{font-size:19px;margin:14px 0 6px;font-weight:600}
+.step p{color:#e2c7cd;font-weight:300;font-size:16px}
+.quote{text-align:center;max-width:960px;margin:0 auto}
+.quote .st{color:#b8913a;letter-spacing:6px}
+.quote blockquote{font-family:'Prata',serif;font-size:clamp(36px,5.4vw,76px);line-height:1.05;margin:18px 0}
+.quote small{color:var(--muted)}
+.quote a{color:var(--wine);font-weight:500}
+.r-meta{display:flex;justify-content:center;gap:50px;margin-top:30px}
+.r-meta b{font-family:'Prata',serif;font-size:44px;font-weight:400;display:block;line-height:1}
+.r-meta small{color:var(--muted)}
+#voprosy .faq details{background:var(--white);border-color:var(--line);border-radius:0}
+.contacts{display:grid;grid-template-columns:1fr 1.3fr;border:1px solid var(--ink)}
+.c-info{padding:46px;background:var(--white)}
+.c-line{padding:15px 0;border-bottom:1px solid var(--line)}
+.c-line:last-of-type{border:0}
+.c-line small{display:block;color:var(--muted);font-size:14px}
+.c-line b{font-size:19px;font-weight:500}
+.c-info .actions{margin-top:24px}
+.c-map iframe{width:100%;height:100%;min-height:440px;border:0;display:block;filter:grayscale(1) contrast(1.05)}
+footer{padding:34px 0 100px;text-align:center;color:var(--muted);font-size:14px}
+.mobile-bar{display:none}
+@media (max-width:960px){
+  nav{display:none}
+  .hero .wrap,.split,.contacts{grid-template-columns:1fr}
+  .hero .wrap{min-height:0;padding-top:20px}
+  .covers{height:520px}
+  .row{grid-template-columns:44px 1fr auto}
+  .row p{grid-column:2/-1;grid-row:2}
+  .steps{grid-template-columns:1fr 1fr}
+  .split{gap:40px}
+  .c-info{padding:30px}
+  section{padding:70px 0}
+  .mobile-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;gap:10px;padding:10px 14px;background:var(--ivory);border-top:1px solid var(--ink)}
+  .mobile-bar .btn{flex:1;padding:14px}
+}
+@media (max-width:600px){
+  header .btn-sm{display:none}
+  .covers{height:420px}
+  .covers .c1{right:10%;width:76%}
+  .covers .lbl{font-size:17px;padding:12px 14px}
+  .steps{grid-template-columns:1fr}
+  .meta{gap:24px}
+  .meta b{font-size:30px}
+  .actions .btn{width:100%}
+  .row{grid-template-columns:34px 1fr}
+  .row b{grid-column:2;font-size:20px}
+  .row p{grid-row:auto}
+}
+.hero .wrap > *,.split > *,.contacts > *{min-width:0}
+.row > *{min-width:0}
+.row h3{overflow-wrap:break-word}
+.meta{flex-wrap:wrap;gap:18px 30px}
+@media (max-width:380px){.row h3{font-size:21px}.row{gap:6px 14px}.row:hover{padding-left:0}.c-info{padding:24px 16px}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-проект: пример сайта для ателье. Компания его пока не заказывала.</div>
+
+<header>
+  <div class="wrap">
+    <a href="#" class="logo">ШИК<small>ателье</small></a>
+    <nav>
+      <a href="#uslugi">Услуги и цены</a>
+      <a href="#kak">Как работаем</a>
+      <a href="#kontakty">Контакты</a>
+    </nav>
+    <a class="btn btn-main btn-sm" href="tel:+78123461543">8 (812) 346-15-43</a>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:0">
+  <div class="giant" aria-hidden="true">ШИК</div>
+  <div class="wrap">
+    <div>
+      <div class="place">Петроградская сторона · Ординарная, 19</div>
+      <h1>Одежда, которая <span class="rotator" data-words="сидит идеально|как новая|по фигуре">сидит идеально</span></h1>
+      <p>Подгонка по фигуре, ремонт и обновление любимых вещей. Возвращаем одежде вид, будто её только что сшили.</p>
+      <div class="actions">
+        <a class="btn btn-main magnet" href="tel:+78123461543">Позвонить и записаться</a>
+        <a class="btn btn-line magnet" href="#uslugi">Услуги и цены</a>
+      </div>
+      <div class="meta">
+        <div><b data-count="4.5" data-dec="1">4,5</b><small>рейтинг на Google Картах</small></div>
+        <div><b data-count="47">47</b><small>отзывов</small></div>
+        <div><b>до 20:00</b><small>удобно после работы</small></div>
+      </div>
+    </div>
+    <div class="covers">
+      <div class="c1"><img class="kb" src="https://images.unsplash.com/photo-1708234114270-16a791390e8d?auto=format&fit=crop&w=900&q=80" alt="Портниха за работой"></div>
+      <div class="c2" data-depth="-0.3"><img src="https://images.unsplash.com/photo-1633655442168-c6ef0ed2f984?auto=format&fit=crop&w=600&q=80" alt="Пальто на манекене"></div>
+      <div class="lbl" data-depth="-0.5">«Будто новый сшить»<small>из отзыва на Google Картах</small></div>
+    </div>
+  </div>
+  <div class="tape" aria-hidden="true"><div class="tape-in" id="tape"></div></div>
+</section>
+
+<section id="uslugi">
+  <div class="wrap">
+    <div class="head"><h2>Услуги <i>и цены</i></h2><p>Точную цену скажем, когда увидим вещь, - обычно это занимает пару минут. Нажмите на услугу - позвоним и подскажем цену.</p></div>
+    <div class="svc" id="svc">
+      <a class="row" href="tel:+78123461543" data-img="1718184021018-d2158af6b321"><span class="n">01</span><h3>Подгонка по фигуре</h3><p>Ушить или расширить платье, брюки, пиджак - чтобы вещь сидела как влитая.</p><b>от 800 ₽</b></a>
+      <a class="row" href="tel:+78123461543" data-img="1606501126768-b78d4569d3f9"><span class="n">02</span><h3>Укоротить брюки и джинсы</h3><p>На джинсах можно сохранить фабричный шов - подшив почти незаметен.</p><b>от 600 ₽</b></a>
+      <a class="row" href="tel:+78123461543" data-img="1497997092403-f091fcf5b6c4"><span class="n">03</span><h3>Замена молнии</h3><p>Куртки, пальто, брюки, юбки, платья. Подберём молнию под цвет и вещь.</p><b>от 700 ₽</b></a>
+      <a class="row" href="tel:+78123461543" data-img="1633655442168-c6ef0ed2f984"><span class="n">04</span><h3>Ремонт верхней одежды</h3><p>Пальто, пуховики, кожа: подкладка, карманы, манжеты, рукава.</p><b>от 1 200 ₽</b></a>
+      <a class="row" href="tel:+78123461543" data-img="1578353022142-09264fd64295"><span class="n">05</span><h3>Ремонт и штопка</h3><p>Порвалось, протёрлось, оторвалось - аккуратно восстановим.</p><b>от 400 ₽</b></a>
+      <a class="row" href="tel:+78123461543" data-img="1584184924103-e310d9dc82fc"><span class="n">06</span><h3>Индивидуальный пошив</h3><p>Платье, юбка, костюм по вашим меркам - из вашей ткани или нашей.</p><b>от 5 000 ₽</b></a>
+    </div>
+    <p class="note">Цены на демо-сайте примерные, хозяин ателье поправит их под себя.</p>
+  </div>
+</section>
+<div class="peek" id="peek" aria-hidden="true"><img id="peekImg" alt=""></div>
+
+<section style="padding-top:0">
+  <div class="wrap split">
+    <div class="ph"><img src="https://images.unsplash.com/photo-1633655442356-ab2dbc69c772?auto=format&fit=crop&w=1000&q=80" alt="Портной подбирает пуговицы к ткани" loading="lazy"></div>
+    <div>
+      <h2 style="margin-bottom:26px">Аккуратно, <i>как для себя</i></h2>
+      <div class="list">
+        <div><b>I</b><div><h3>Примерка при вас</h3><p>Снимем мерки и наметим всё на вас, чтобы результат был точным.</p></div></div>
+        <div><b>II</b><div><h3>Срок называем сразу</h3><p>Срочный ремонт - по договорённости, с доплатой.</p></div></div>
+        <div><b>III</b><div><h3>Сложные вещи</h3><p>Работаем с костюмами, платьями, кожей и сложными тканями.</p></div></div>
+        <div><b>IV</b><div><h3>Цена - до работы</h3><p>Стоимость называем до начала работы - без сюрпризов при выдаче.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="kak">
+  <div class="wrap">
+    <div class="head"><h2>Четыре шага <i style="color:#e9b9c3">до идеальной посадки</i></h2></div>
+    <div class="steps">
+      <div class="step"><b>1</b><h3>Позвоните</h3><p>Расскажите, что нужно сделать, - подскажем примерную цену.</p></div>
+      <div class="step"><b>2</b><h3>Приходите на примерку</h3><p>Посмотрим вещь, снимем мерки, назовём точную цену и срок.</p></div>
+      <div class="step"><b>3</b><h3>Мы работаем</h3><p>Аккуратно делаем всё, о чём договорились.</p></div>
+      <div class="step"><b>4</b><h3>Забираете вещь</h3><p>Примеряете готовое - если нужно, сразу поправим.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="quote">
+      <div class="st">★★★★★</div>
+      <blockquote>«Просто шок, будто новый сшить»</blockquote>
+      <small>Из отзыва на Google Картах · <a href="https://www.google.com/maps/search/?api=1&query=ШИК+ателье+Ординарная+19+Санкт-Петербург" target="_blank" rel="noopener">читать все отзывы</a></small>
+      <div class="r-meta">
+        <div><b data-count="4.5" data-dec="1">4,5</b><small>средняя оценка</small></div>
+        <div><b data-count="47">47</b><small>отзывов</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="voprosy" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="faq-h">Частые вопросы</h2>
+    <div class="faq">
+      <details><summary>Сколько стоит срочный ремонт?</summary><p>Срочный ремонт - по договорённости, обычно с доплатой. Размер доплаты назовём при приёме вещи.</p></details>
+      <details><summary>Что если с вещью что-то случится?</summary><p>Попросите квитанцию при сдаче вещи: в ней записывают описание, цену и срок. Это защищает и вас, и ателье.</p></details>
+      <details><summary>Сколько ждать?</summary><p>Простой ремонт - обычно 1-3 дня, пошив - дольше. Точный срок называем сразу, при приёме.</p></details>
+      <details><summary>Как оплатить?</summary><p>Способы оплаты уточняйте по телефону.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="kontakty" style="padding-top:0">
+  <div class="wrap">
+    <div class="contacts">
+      <div class="c-info">
+        <h2 style="margin-bottom:20px">Ждём <i>в ателье</i></h2>
+        <div class="c-line"><small>Адрес</small><b>Санкт-Петербург, Ординарная ул., 19</b></div>
+        <div class="c-line"><small>Телефон</small><b><a href="tel:+78123461543">8 (812) 346-15-43</a></b></div>
+        <div class="c-line"><small>Время работы</small><b>До 20:00</b><small>Точный график - по телефону</small></div>
+        <div class="actions">
+          <a class="btn btn-main" href="tel:+78123461543">Позвонить</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&destination=59.9674221,30.3055817" target="_blank" rel="noopener">Маршрут</a>
+        </div>
+      </div>
+      <div class="c-map"><iframe src="https://www.google.com/maps?q=59.9674221,30.3055817&z=16&output=embed" loading="lazy" title="Карта: ателье ШИК"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© Ателье «ШИК», Санкт-Петербург, Ординарная ул., 19 · Демо-проект</div></footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&destination=59.9674221,30.3055817" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn btn-main" href="tel:+78123461543">Позвонить</a>
+</div>
+
+<script>
+// Сантиметровая лента: цифры и надписи, лента едет при прокрутке
+(function(){
+  var t = document.getElementById('tape'), html = '';
+  for (var i = 0; i < 60; i++) html += '<span style="left:' + (i * 100 + 4) + 'px">' + i * 10 + '</span>';
+  t.innerHTML = html;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function(){ t.style.transform = 'translateX(' + (-scrollY * 0.6) + 'px)'; ticking = false; });
+  }, { passive: true });
+})();
+
+// Услуги: на компьютере за курсором появляется фото услуги
+(function(){
+  if (!matchMedia('(hover: hover)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var peek = document.getElementById('peek'), img = document.getElementById('peekImg');
+  document.querySelectorAll('#svc .row').forEach(function(r){
+    var src = 'https://images.unsplash.com/photo-' + r.getAttribute('data-img') + '?auto=format&fit=crop&w=520&q=80';
+    new Image().src = src;
+    r.addEventListener('mouseenter', function(){ img.src = src; peek.classList.add('on'); });
+    r.addEventListener('mouseleave', function(){ peek.classList.remove('on'); });
+    r.addEventListener('mousemove', function(e){ peek.style.left = (e.clientX + 170) + 'px'; peek.style.top = e.clientY + 'px'; });
+  });
+})();
+</script>
+<script src="../_obshee/zhivoe.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Новые цветы - круглосуточно, Казань</title>
+<meta name="description" content="Цветочный магазин «Новые цветы» в Казани работает круглосуточно: букеты, розы, композиции, доставка по городу. Космонавтов, 41. Рейтинг 4,8.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500;1,600&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f7f2ec;--blush:#f3cdd3;--blush-l:#fbe9ec;--rose:#c8475f;--emerald:#173a2e;--emerald-2:#0f2a21;--sage:#9db8a4;--ink:#1d2622;--muted:#6f7a74;--line:#e6ddd3;--white:#fff;--accent:#c8475f}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Onest',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;font-size:17px;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+.demo{background:var(--emerald-2);color:#cfe0d5;font-size:12.5px;text-align:center;padding:7px 16px}
+.lo{font-family:'Lora',Georgia,serif}
+header{position:sticky;top:0;z-index:30;background:rgba(247,242,236,.86);backdrop-filter:blur(14px) saturate(150%);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{font-family:'Lora',serif;font-size:27px;font-weight:600;text-decoration:none;color:var(--emerald)}
+.logo i{color:var(--rose)}
+nav{display:flex;gap:30px;font-weight:500}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--rose)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 30px;font-weight:600;text-decoration:none;font-size:16px;border-radius:999px;transition:background .25s,color .25s,box-shadow .25s,transform .25s}
+.btn-main{background:var(--rose);color:#fff;box-shadow:0 16px 30px -14px rgba(200,71,95,.75)}
+.btn-main:hover{background:#b23a51;transform:translateY(-2px)}
+.btn-line{border:1.5px solid currentColor}
+.btn-line:hover{background:rgba(255,255,255,.12)}
+.btn-sm{padding:11px 20px;font-size:15px}
+/* Первый экран: день или ночь - по времени Казани */
+.hero{position:relative;overflow:hidden;transition:background 1s,color 1s;background:radial-gradient(900px 600px at 80% 30%,#fde3e7 0%,transparent 60%),radial-gradient(700px 500px at 10% 100%,#e2eee5 0%,transparent 60%),var(--paper);color:var(--ink)}
+.hero.night{background:radial-gradient(800px 600px at 78% 22%,#2b5a49 0%,transparent 60%),linear-gradient(180deg,#0f2a21,#173a2e);color:#eef5f0}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:50px;align-items:center;min-height:min(calc(100vh - 110px),780px);padding-top:40px;padding-bottom:80px;position:relative;z-index:2}
+.clock{display:inline-flex;align-items:center;gap:12px;padding:10px 18px 10px 14px;border-radius:999px;background:rgba(255,255,255,.7);backdrop-filter:blur(10px);border:1px solid rgba(23,58,46,.12);font-weight:600;font-size:15px;margin-bottom:26px}
+.night .clock{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)}
+.clock b{font-variant-numeric:tabular-nums}
+h1{font-family:'Lora',serif;font-weight:500;font-size:clamp(46px,6.6vw,92px);line-height:.98;letter-spacing:-.02em}
+h1 em{font-style:italic;color:var(--rose)}
+.night h1 em{color:#f5b7c3}
+.lead{font-size:19px;opacity:.78;margin:24px 0 34px;max-width:480px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.stats{display:flex;flex-wrap:wrap;gap:18px 40px;margin-top:44px}
+.stats b{font-family:'Lora',serif;font-size:40px;font-weight:500;display:block;line-height:1}
+.stats small{opacity:.65;font-size:14px}
+.pic{position:relative;aspect-ratio:1/1.1;max-width:540px;width:100%;margin:0 auto}
+.pic .big{position:absolute;inset:0 12% 8% 0;border-radius:300px 300px 30px 30px;overflow:hidden;box-shadow:0 50px 80px -40px rgba(15,42,33,.6)}
+.pic .big img{width:100%;height:100%;object-fit:cover}
+.pic .small{position:absolute;right:0;bottom:0;width:44%;aspect-ratio:3/4;border-radius:24px;overflow:hidden;border:8px solid var(--paper);box-shadow:0 30px 50px -20px rgba(15,42,33,.5);transition:border-color 1s}
+.night .pic .small{border-color:#173a2e}
+.pic .small img{width:100%;height:100%;object-fit:cover}
+.moon{position:absolute;right:6%;top:-4%;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff9e6,#f3dd9f 60%,#cfae5c);box-shadow:0 0 80px 20px rgba(243,221,159,.35);opacity:0;transform:scale(.6);transition:opacity 1s,transform 1s;z-index:3}
+.night .moon{opacity:1;transform:scale(1)}
+.sun{position:absolute;right:6%;top:-4%;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,#ffe8a8,#ffd166 55%,rgba(255,209,102,0) 72%);transition:opacity 1s;z-index:3}
+.night .sun{opacity:0}
+h1,h2,.b-name{word-spacing:-.12em}
+.pic .big .zh-stock{left:18px;right:auto;bottom:18px}
+.petal{position:absolute;top:-40px;width:16px;height:22px;border-radius:70% 0 70% 0;z-index:1;pointer-events:none;animation:fall linear infinite}
+@keyframes fall{0%{transform:translate3d(0,-40px,0) rotateX(0) rotateY(0) rotateZ(0)}100%{transform:translate3d(90px,110vh,0) rotateX(540deg) rotateY(320deg) rotateZ(200deg)}}
+@media (prefers-reduced-motion:reduce){.petal{display:none}}
+/* Разделы */
+section{padding:110px 0}
+.head{max-width:680px;margin-bottom:50px}
+.head.c{text-align:center;margin-left:auto;margin-right:auto}
+h2{font-family:'Lora',serif;font-weight:500;font-size:clamp(36px,4.8vw,62px);line-height:1.04;letter-spacing:-.015em}
+h2 em{font-style:italic;color:var(--rose)}
+.head p{color:var(--muted);margin-top:14px;font-size:18px}
+/* Букет на вашу сумму */
+.budget{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center;background:var(--white);border-radius:40px;padding:50px;box-shadow:0 50px 90px -60px rgba(15,42,33,.5)}
+.b-photo{position:relative;aspect-ratio:4/4.4;border-radius:30px;overflow:hidden;background:var(--blush-l)}
+.b-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.b-photo img.hide{opacity:0;transform:scale(1.08)}
+.b-sum{font-family:'Lora',serif;font-size:clamp(50px,6vw,76px);line-height:1;color:var(--rose);font-variant-numeric:tabular-nums;margin:16px 0 4px}
+.b-name{font-family:'Lora',serif;font-style:italic;font-size:30px}
+.b-desc{color:var(--muted);margin:8px 0 26px;min-height:56px}
+input[type=range]{width:100%;accent-color:var(--rose);height:30px}
+.ticks{display:flex;justify-content:space-between;color:var(--muted);font-size:13.5px;margin-top:4px}
+.budget .btn{margin-top:26px}
+/* Каталог: мозаика */
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:240px;gap:16px}
+.m{position:relative;border-radius:28px;overflow:hidden;color:#fff;text-decoration:none}
+.m img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.m:hover img{transform:scale(1.08)}
+.m::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(15,30,24,.78))}
+.m .t{position:absolute;left:22px;right:22px;bottom:18px;z-index:2}
+.m h3{font-family:'Lora',serif;font-weight:500;font-size:27px;line-height:1.1}
+.m p{font-size:14.5px;opacity:.85}
+.m b{display:inline-block;margin-top:8px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.2);backdrop-filter:blur(6px);font-size:14px}
+.m.w2{grid-column:span 2}.m.h2{grid-row:span 2}
+.m .zh-stock{top:14px;bottom:auto}
+.note{color:var(--muted);font-size:14px;margin-top:22px}
+/* Доставка */
+.dark{background:var(--emerald);color:#eef5f0;position:relative;overflow:hidden}
+.dark .head p{color:#b9cdc0}
+.dgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.dcard{border-radius:28px;padding:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(8px)}
+.dcard svg{width:34px;height:34px;margin-bottom:16px}
+.dcard h3{font-family:'Lora',serif;font-weight:500;font-size:23px;margin-bottom:6px}
+.dcard p{color:#b9cdc0;font-size:15.5px}
+.dark .glow{position:absolute;width:520px;height:520px;right:-160px;top:-200px;background:radial-gradient(circle,rgba(243,205,211,.25),transparent 65%)}
+.quote{text-align:center;max-width:900px;margin:0 auto}
+.quote .st{color:#d9a441;letter-spacing:6px}
+.quote blockquote{font-family:'Lora',serif;font-style:italic;font-size:clamp(30px,4.2vw,54px);line-height:1.15;margin:16px 0}
+.quote small{color:var(--muted)}
+.quote a{color:var(--rose);font-weight:600}
+#voprosy .faq details{background:var(--white);border-color:var(--line)}
+.contacts{display:grid;grid-template-columns:1fr 1.3fr;gap:20px}
+.c-card{background:var(--white);border-radius:32px;padding:40px;border:1px solid var(--line)}
+.c-row{padding:15px 0;border-bottom:1px solid var(--line)}
+.c-row:last-of-type{border:0}
+.c-row small{display:block;color:var(--muted);font-size:14px}
+.c-row b{font-size:19px}
+.c-card .actions{margin-top:24px}
+.c-card .btn-line{color:var(--emerald)}
+.map{border-radius:32px;overflow:hidden;min-height:400px;border:1px solid var(--line)}
+.map iframe{width:100%;height:100%;min-height:400px;border:0;display:block}
+footer{padding:34px 0 100px;text-align:center;color:var(--muted);font-size:14px}
+.mobile-bar{display:none}
+@media (max-width:960px){
+  nav{display:none}
+  .hero .wrap,.budget,.contacts{grid-template-columns:1fr}
+  .hero .wrap{min-height:0}
+  .pic{max-width:440px}
+  .budget{padding:26px 20px}
+  .mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
+  .dgrid{grid-template-columns:1fr 1fr}
+  section{padding:70px 0}
+  .mobile-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;gap:10px;padding:10px 14px;background:rgba(247,242,236,.95);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  .mobile-bar .btn{flex:1;padding:13px}
+  .mobile-bar .btn-line{color:var(--emerald)}
+}
+@media (max-width:600px){
+  header .btn-sm{display:none}
+  .mosaic{grid-template-columns:1fr;grid-auto-rows:230px}
+  .m.w2{grid-column:auto}.m.h2{grid-row:auto}
+  .dgrid{grid-template-columns:1fr}
+  .stats{gap:24px}
+  .stats b{font-size:32px}
+  .actions .btn{width:100%}
+  .moon,.sun{width:80px;height:80px}
+}
+.hero .wrap > *,.budget > *,.contacts > *{min-width:0}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-проект: пример сайта для цветочного магазина. Компания его пока не заказывала.</div>
+
+<header>
+  <div class="wrap">
+    <a href="#" class="logo">Новые <i>цветы</i></a>
+    <nav>
+      <a href="#summa">Букет на сумму</a>
+      <a href="#bukety">Букеты</a>
+      <a href="#dostavka">Доставка</a>
+      <a href="#kontakty">Контакты</a>
+    </nav>
+    <a class="btn btn-main btn-sm" href="tel:+78432796969">8 (843) 279-69-69</a>
+  </div>
+</header>
+
+<section class="hero" id="hero" style="padding:0">
+  <div class="wrap">
+    <div>
+      <div class="clock"><span class="live-dot"></span><span>Сейчас в Казани <b id="kzn">--:--</b> - мы открыты</span></div>
+      <h1>Свежие цветы <em>в любое время</em> суток</h1>
+      <p class="lead" id="lead">Соберём букет при вас или привезём по Казани. Днём, вечером и даже ночью - если вспомнили о празднике в последний момент.</p>
+      <div class="actions">
+        <a class="btn btn-main magnet" href="tel:+78432796969">Позвонить: 8 (843) 279-69-69</a>
+        <a class="btn btn-line magnet" href="#summa">Букет на мою сумму</a>
+      </div>
+      <div class="stats">
+        <div><b data-count="4.8" data-dec="1">4,8</b><small>рейтинг на Google Картах</small></div>
+        <div><b data-count="90">90</b><small>отзывов</small></div>
+        <div><b>24/7</b><small>без выходных</small></div>
+      </div>
+    </div>
+    <div class="pic">
+      <div class="sun" aria-hidden="true"></div>
+      <div class="moon" aria-hidden="true"></div>
+      <div class="big"><img class="kb" src="https://images.unsplash.com/photo-1523693916903-027d144a2b7d?auto=format&fit=crop&w=1000&q=80" alt="Букет розовых и белых роз"></div>
+      <div class="small" data-depth="-0.3"><img src="https://images.unsplash.com/photo-1589095181425-c038b3871b6a?auto=format&fit=crop&w=500&q=80" alt="Букет красных роз в руках"></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee lo" style="background:var(--emerald);color:#f3cdd3;font-size:23px;font-style:italic" data-items="Розы|Пионы|Тюльпаны|Хризантемы|Сухоцветы|Цветы в коробке|Свадебные букеты|Доставка по Казани"></div>
+
+<section id="summa">
+  <div class="wrap">
+    <div class="head c"><h2>Букет <em>на вашу сумму</em></h2><p>Двигайте ползунок - покажем, какой букет примерно получится. Флорист соберёт похожий и пришлёт фото.</p></div>
+    <div class="budget">
+      <div class="b-photo">
+        <img id="bA" src="https://images.unsplash.com/photo-1572454591674-2739f30d8c40?auto=format&fit=crop&w=900&q=80" alt="Нежный букет в вазе">
+        <img id="bB" class="hide" src="https://images.unsplash.com/photo-1572454591674-2739f30d8c40?auto=format&fit=crop&w=900&q=80" alt="">
+      </div>
+      <div>
+        <div class="b-name" id="bName">Нежность</div>
+        <div class="b-sum" id="bSum">от 2 900 ₽</div>
+        <p class="b-desc" id="bDesc">Розы, нежные сезонные цветы и зелень в пастельных тонах.</p>
+        <label for="bRange" class="lo" style="font-size:18px">Ваш бюджет</label>
+        <input type="range" id="bRange" min="0" max="4" step="1" value="1" aria-describedby="bName">
+        <div class="ticks"><span>1 900</span><span>2 900</span><span>3 500</span><span>4 200</span><span>6 500+</span></div>
+        <a class="btn btn-main" id="bCall" href="tel:+78432796969">Заказать букет от 2 900 ₽ - позвонить</a>
+      </div>
+    </div>
+    <p class="note" style="text-align:center">Фото-примеры и примерные цены - хозяин магазина поправит их под себя.</p>
+  </div>
+</section>
+
+<section id="bukety" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><h2>На любой <em>повод</em></h2><p>Скажите сумму и для кого букет - флорист предложит варианты.</p></div>
+    <div class="mosaic">
+      <a class="m w2 h2" href="tel:+78432796969"><img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=1000&q=80" alt="Розовая композиция" loading="lazy"><div class="t"><h3>Композиции в коробке</h3><p>Не нужно искать вазу - сразу на стол</p><b>от 4 200 ₽</b></div></a>
+      <a class="m" href="tel:+78432796969"><img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=600&q=80" alt="Розовые розы крупно" loading="lazy"><div class="t"><h3>Розы поштучно</h3><b>от 150 ₽/шт</b></div></a>
+      <a class="m" href="tel:+78432796969"><img src="https://images.unsplash.com/photo-1778101410311-6cca527142d6?auto=format&fit=crop&w=600&q=80" alt="Яркий букет с подсолнухами" loading="lazy"><div class="t"><h3>Солнечный</h3><b>от 3 500 ₽</b></div></a>
+      <a class="m" href="tel:+78432796969"><img src="https://images.unsplash.com/photo-1622658641558-235f26dd270b?auto=format&fit=crop&w=600&q=80" alt="Букет сухоцветов в крафте" loading="lazy"><div class="t"><h3>Сухоцветы</h3><b>от 1 900 ₽</b></div></a>
+      <a class="m" href="tel:+78432796969"><img src="https://images.unsplash.com/photo-1457089328109-e5d9bd499191?auto=format&fit=crop&w=600&q=80" alt="Большая цветочная композиция" loading="lazy"><div class="t"><h3>Свадьба и юбилей</h3><b>от 6 500 ₽</b></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="dostavka">
+  <div class="glow"></div>
+  <div class="wrap" style="position:relative">
+    <div class="head"><h2>Привезём <em style="color:#f5b7c3">точно ко времени</em></h2><p>Работаем круглосуточно - заказ можно сделать в любое время.</p></div>
+    <div class="dgrid">
+      <div class="dcard tilt glare"><svg viewBox="0 0 24 24" fill="none" stroke="#f3cdd3" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Круглосуточно</h3><p>Принимаем заказы днём и ночью, без выходных.</p></div>
+      <div class="dcard tilt glare"><svg viewBox="0 0 24 24" fill="none" stroke="#f3cdd3" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="7" width="18" height="13" rx="3"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg><h3>Фото перед доставкой</h3><p>Попросите - пришлём фото букета, прежде чем везти.</p></div>
+      <div class="dcard tilt glare"><svg viewBox="0 0 24 24" fill="none" stroke="#f3cdd3" stroke-width="1.5" stroke-linecap="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><h3>По всей Казани</h3><p>Цена доставки зависит от района - назовём сразу при заказе.</p></div>
+      <div class="dcard tilt glare"><svg viewBox="0 0 24 24" fill="none" stroke="#f3cdd3" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><h3>Открытка к букету</h3><p>Подпишем ваши слова - скажите их при заказе.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="quote">
+      <div class="st">★★★★★</div>
+      <blockquote>«Доставили точно ко времени, цветы свежие, упаковка симпатичная»</blockquote>
+      <small>Из отзыва на Google Картах · рейтинг 4,8 из 90 отзывов · <a href="https://www.google.com/maps/search/?api=1&query=Новые+цветы+Космонавтов+41+Казань" target="_blank" rel="noopener">читать все</a></small>
+    </div>
+  </div>
+</section>
+
+<section id="voprosy" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="faq-h">Частые вопросы</h2>
+    <div class="faq">
+      <details><summary>Сколько стоит доставка?</summary><p>Цена зависит от района Казани и времени. Флорист назовёт её сразу при заказе, вместе с ценой букета.</p></details>
+      <details><summary>Вы правда работаете ночью?</summary><p>Да, по данным Google Карт магазин работает круглосуточно. Ночью лучше позвонить заранее, чтобы флорист успел собрать букет.</p></details>
+      <details><summary>Можно увидеть букет до доставки?</summary><p>Попросите при заказе - флорист пришлёт фото готового букета.</p></details>
+      <details><summary>Как оплатить?</summary><p>По данным Google Карт, в магазине принимают банковские карты и бесконтактную оплату.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="kontakty" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><h2>Заходите <em>за цветами</em></h2></div>
+    <div class="contacts">
+      <div class="c-card">
+        <div class="c-row"><small>Адрес</small><b>Казань, ул. Космонавтов, 41</b></div>
+        <div class="c-row"><small>Телефон</small><b><a href="tel:+78432796969">8 (843) 279-69-69</a></b></div>
+        <div class="c-row"><small>Время работы</small><b><span class="live-dot"></span>Круглосуточно</b></div>
+        <div class="actions">
+          <a class="btn btn-main" href="tel:+78432796969">Позвонить</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&destination=55.7985725,49.1918856" target="_blank" rel="noopener">Маршрут</a>
+        </div>
+      </div>
+      <div class="map"><iframe src="https://www.google.com/maps?q=55.7985725,49.1918856&z=16&output=embed" loading="lazy" title="Карта: Новые цветы"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© Новые цветы, Казань, Космонавтов, 41 · Демо-проект</div></footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-line" href="#summa">Букет на сумму</a>
+  <a class="btn btn-main" href="tel:+78432796969">Позвонить</a>
+</div>
+
+<script>
+// Первый экран: время Казани (UTC+3); с 21:00 до 7:00 включаем «ночь»
+(function(){
+  var hero = document.getElementById('hero'), out = document.getElementById('kzn');
+  function tick(){
+    var d = new Date(Date.now() + 3 * 3600 * 1000), h = d.getUTCHours(), m = d.getUTCMinutes();
+    out.textContent = (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
+    hero.classList.toggle('night', h >= 21 || h < 7);
+  }
+  tick(); setInterval(tick, 20000);
+  // объёмные лепестки
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var colors = ['#f9e3e7','#f3cdd3','#e9a3b3','#dfe9df','#f5b7c3'];
+  for (var i = 0; i < 16; i++) {
+    var p = document.createElement('span');
+    p.className = 'petal';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.background = 'linear-gradient(135deg,' + colors[i % colors.length] + ',#fff)';
+    p.style.animationDuration = 10 + Math.random() * 10 + 's';
+    p.style.animationDelay = -Math.random() * 18 + 's';
+    p.style.width = 12 + Math.random() * 10 + 'px';
+    hero.appendChild(p);
+  }
+})();
+
+// Букет на вашу сумму: ползунок меняет фото, название и цену
+(function(){
+  var data = [
+    ['1622658641558-235f26dd270b', 'Сухоцветы', 'от 1 900 ₽', 'Простоит месяцы - удобный подарок коллеге или в офис.'],
+    ['1572454591674-2739f30d8c40', 'Нежность', 'от 2 900 ₽', 'Розы, нежные сезонные цветы и зелень в пастельных тонах.'],
+    ['1778101410311-6cca527142d6', 'Солнечный', 'от 3 500 ₽', 'Подсолнухи, розы и гортензия - настроение лета.'],
+    ['1561181286-d3fee7d55364', 'Композиция в коробке', 'от 4 200 ₽', 'Пышная композиция - не нужно искать, куда поставить.'],
+    ['1457089328109-e5d9bd499191', 'Большой праздник', 'от 6 500 ₽', 'Юбилей, свадьба, оформление стола - соберём под ваш размах.']
+  ];
+  var r = document.getElementById('bRange'), a = document.getElementById('bA'), b = document.getElementById('bB');
+  var front = a, back = b, cur = 1;
+  function url(id){ return 'https://images.unsplash.com/photo-' + id + '?auto=format&fit=crop&w=900&q=80'; }
+  data.forEach(function(x){ new Image().src = url(x[0]); });
+  r.addEventListener('input', function(){
+    var i = +r.value; if (i === cur) return; cur = i;
+    var x = data[i];
+    document.getElementById('bName').textContent = x[1];
+    document.getElementById('bSum').textContent = x[2];
+    document.getElementById('bDesc').textContent = x[3];
+    document.getElementById('bCall').textContent = 'Заказать букет ' + x[2] + ' - позвонить';
+    back.src = url(x[0]); back.alt = x[1];
+    back.classList.remove('hide'); front.classList.add('hide'); front.alt = '';
+    var t = front; front = back; back = t;
+  });
+})();
+</script>
+<script src="../_obshee/zhivoe.js" defer></script>
+</body>
+</html>

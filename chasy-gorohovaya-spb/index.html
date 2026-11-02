@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Часовая мастерская на Гороховой, 38</title>
+<meta name="description" content="Часовая мастерская на Гороховой, 38 в Санкт-Петербурге: ремонт наручных и настольных часов, замена батареек с гарантией год, стёкол и браслетов.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--night:#0d1320;--night-2:#151e31;--night-3:#1d2840;--champ:#e2cfac;--brass:#b8925a;--ivory:#f4efe6;--ink:#121a2b;--muted:#8d97ab;--muted-d:#6b6f78;--line:#2a3550;--line-l:#e3dccf;--accent:#b8925a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--ivory);color:var(--ink);line-height:1.65;font-size:16.5px}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--champ);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.demo{background:#080c15;color:var(--muted);font-size:12.5px;text-align:center;padding:7px 16px}
+.cg{font-family:'Cormorant Garamond',Georgia,serif}
+header{position:sticky;top:0;z-index:20;background:rgba(13,19,32,.94);backdrop-filter:blur(14px) saturate(140%);color:var(--ivory);border-bottom:1px solid rgba(226,207,172,.12)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{text-decoration:none;display:flex;align-items:center;gap:12px}
+.logo svg{width:34px;height:34px}
+.logo b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px;line-height:1;display:block}
+.logo small{display:block;font-size:12px;color:var(--champ);letter-spacing:.06em;margin-top:3px}
+nav{display:flex;gap:30px;font-size:15px}
+nav a{text-decoration:none;color:#b7bfcd}
+nav a:hover{color:var(--champ)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 30px;font-weight:600;text-decoration:none;font-size:15.5px;border-radius:999px;transition:background .25s,color .25s,border-color .25s}
+.btn-main{background:linear-gradient(135deg,#ead9b8,#b8925a 60%,#9c7843);color:#14110c;box-shadow:0 10px 30px -10px rgba(184,146,90,.6),inset 0 1px 0 rgba(255,255,255,.45)}
+.btn-main:hover{background:linear-gradient(135deg,#f3e6cc,#c9a46c 60%,#a9834c)}
+.btn-line{border:1px solid rgba(226,207,172,.45);color:var(--champ)}
+.btn-line:hover{border-color:var(--champ);background:rgba(226,207,172,.08)}
+.btn-sm{padding:11px 20px;font-size:14.5px}
+/* Первый экран */
+.hero{background:radial-gradient(1200px 700px at 72% 40%,#1f2b47 0%,var(--night) 60%);color:var(--ivory);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center;min-height:min(calc(100vh - 110px),780px);padding-top:40px;padding-bottom:70px}
+.hero-txt{position:relative;z-index:2}
+.place{color:var(--champ);font-size:14.5px;margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.place::before{content:"";width:34px;height:1px;background:var(--brass)}
+h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(44px,6.2vw,86px);line-height:.98;letter-spacing:-.01em}
+h1 .rotator{font-style:italic;color:var(--champ)}
+.hero p{font-size:18px;color:#b7bfcd;margin:26px 0 34px;max-width:480px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.facts{display:flex;gap:44px;margin-top:46px}
+.facts b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:40px;display:block;line-height:1;color:var(--champ);white-space:nowrap}
+.facts small{color:var(--muted);font-size:13.5px}
+/* 3D-часы */
+.stage{position:relative;aspect-ratio:1;width:min(560px,100%);margin:0 auto;perspective:1200px}
+.gear{position:absolute;color:rgba(184,146,90,.22)}
+.gear svg{width:100%;height:100%;display:block}
+.g1{width:46%;left:-8%;top:4%}
+.g1 svg{animation:spin 60s linear infinite}
+.g2{width:30%;right:-4%;bottom:2%}
+.g2 svg{animation:spin 40s linear infinite reverse}
+.g3{width:20%;right:6%;top:2%}
+.g3 svg{animation:spin 26s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.watch{position:absolute;inset:11%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.bezel{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 210deg,#5c4626,#f1e2c4,#9c7843,#fff3dc,#7a5d34,#e9d4ad,#5c4626);box-shadow:0 60px 90px -30px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.08),inset 0 0 0 2px rgba(255,255,255,.25)}
+.dial{position:absolute;inset:5.5%;border-radius:50%;background:radial-gradient(circle at 50% 35%,#24324f,#111a2c 70%);box-shadow:inset 0 10px 30px rgba(0,0,0,.6),inset 0 0 0 1px rgba(226,207,172,.25);transform:translateZ(18px)}
+.dial svg{width:100%;height:100%;display:block}
+.glass{position:absolute;inset:5.5%;border-radius:50%;transform:translateZ(46px);pointer-events:none;background:linear-gradient(130deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 32%,rgba(255,255,255,0) 70%,rgba(255,255,255,.08) 100%)}
+.hand{transform-origin:200px 200px;transition:transform .35s cubic-bezier(.4,2.3,.6,1)}
+.cap{position:absolute;left:50%;bottom:-2%;transform:translateX(-50%);font-size:13.5px;color:var(--muted);white-space:nowrap}
+/* Разделы */
+section{padding:110px 0}
+.head{max-width:640px;margin-bottom:56px}
+h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,4.6vw,60px);line-height:1.04}
+.head p{color:var(--muted-d);margin-top:16px;font-size:17px}
+/* Прайс как в дорогом каталоге */
+.ledger{border-top:1px solid var(--line-l)}
+.row{display:grid;grid-template-columns:1.1fr 1.6fr auto;gap:30px;align-items:baseline;padding:30px 6px;border-bottom:1px solid var(--line-l);transition:background .3s,padding .3s}
+.row:hover{background:#fbf8f2;padding-left:18px;padding-right:18px}
+.row h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:30px;line-height:1.1}
+.row p{color:var(--muted-d);font-size:15.5px}
+.row b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;white-space:nowrap;color:#8a6a3c}
+.row b small{font-family:'Manrope',sans-serif;font-size:13px;color:var(--muted-d);font-weight:500;margin-right:6px}
+.note{color:var(--muted-d);font-size:14px;margin-top:22px}
+/* Почему мы */
+.dark{background:var(--night);color:var(--ivory)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.photo{position:relative;border-radius:280px 280px 24px 24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 50px 90px -40px rgba(0,0,0,.8)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo::before{content:"";position:absolute;inset:12px;border:1px solid rgba(226,207,172,.4);border-radius:270px 270px 16px 16px;z-index:2;pointer-events:none}
+.dark .head p{color:var(--muted)}
+.list{display:grid;gap:4px}
+.item{display:grid;grid-template-columns:54px 1fr;gap:10px;padding:22px 0;border-top:1px solid var(--line)}
+.item i{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:30px;color:var(--brass);line-height:1}
+.item h3{font-size:17px;font-weight:600;margin-bottom:2px}
+.item p{color:var(--muted);font-size:15px}
+/* Отзыв */
+.quote{text-align:center;max-width:900px;margin:0 auto}
+.quote blockquote{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(32px,4.4vw,58px);line-height:1.12}
+.quote small{display:block;margin-top:22px;color:var(--muted-d)}
+.quote a{color:#8a6a3c;font-weight:600}
+.stars{color:var(--brass);letter-spacing:6px;margin-bottom:18px}
+/* Контакты */
+.contacts{display:grid;grid-template-columns:1fr 1.25fr;border-radius:28px;overflow:hidden;background:var(--night);color:var(--ivory);box-shadow:0 50px 100px -50px rgba(13,19,32,.7)}
+.c-info{padding:50px}
+.c-row{padding:16px 0;border-bottom:1px solid var(--line)}
+.c-row:last-of-type{border:0}
+.c-row small{display:block;color:var(--muted);font-size:13.5px}
+.c-row b{font-size:19px;font-weight:600}
+.c-info .actions{margin-top:26px}
+.c-map iframe{width:100%;height:100%;min-height:440px;border:0;display:block;filter:grayscale(.6) contrast(1.05)}
+#voprosy .faq details{background:#fff;border-color:var(--line-l)}
+footer{padding:34px 0 100px;text-align:center;color:var(--muted-d);font-size:14px}
+.mobile-bar{display:none}
+@media (max-width:920px){
+  nav{display:none}
+  .hero .wrap,.split,.contacts{grid-template-columns:1fr}
+  .hero .wrap{min-height:0;padding-top:34px}
+  .stage{width:min(420px,100%)}
+  .row{grid-template-columns:1fr auto;gap:6px 20px}
+  .row p{grid-column:1/-1;grid-row:2}
+  .split{gap:44px}
+  .photo{max-width:440px}
+  .c-info{padding:32px}
+  section{padding:70px 0}
+  .mobile-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;gap:10px;padding:10px 14px;background:rgba(13,19,32,.94);backdrop-filter:blur(10px)}
+  .mobile-bar .btn{flex:1;padding:13px}
+}
+@media (max-width:560px){
+  header .btn-sm{display:none}
+  .facts{gap:24px}
+  .facts b{font-size:30px}
+  .actions .btn{width:100%}
+  .row h3,.row b{font-size:25px}
+}
+.hero-txt > *,.split > *,.contacts > *{min-width:0}
+@media (max-width:400px){h1{font-size:36px}}
+@media (max-width:560px){.cap{white-space:normal;text-align:center;width:100%}.facts{flex-wrap:wrap;gap:18px 24px}}
+@media (max-width:380px){.row{grid-template-columns:1fr;gap:6px}.row p{grid-row:auto}.row:hover{padding-left:6px;padding-right:6px}.c-info{padding:24px 16px}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-проект: пример сайта для часовой мастерской. Мастерская его пока не заказывала.</div>
+
+<header>
+  <div class="wrap">
+    <a href="#" class="logo">
+      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="18" stroke="#b8925a" stroke-width="1.5"/><circle cx="20" cy="20" r="13" stroke="#e2cfac" stroke-width=".8"/><path d="M20 9v11l7 4" stroke="#e2cfac" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <span><b>Часовая мастерская</b><small>Гороховая, 38</small></span>
+    </a>
+    <nav>
+      <a href="#uslugi">Услуги и цены</a>
+      <a href="#pochemu">О мастерской</a>
+      <a href="#kontakty">Контакты</a>
+    </nav>
+    <a class="btn btn-main btn-sm" href="tel:+78123104531">8 (812) 310-45-31</a>
+  </div>
+</header>
+
+<section class="hero" style="padding:0">
+  <div class="wrap">
+    <div class="hero-txt">
+      <div class="place">Санкт-Петербург, Гороховая, 38</div>
+      <h1>Вернём вашим часам <span class="rotator" data-words="точный ход|новое стекло|новый ремешок|былой блеск">точный ход</span></h1>
+      <p>Ремонтируем наручные и настольные часы. Меняем батарейки - только швейцарские и японские, с гарантией год. Стёкла, ремешки и браслеты подгоняем по руке.</p>
+      <div class="actions">
+        <a class="btn btn-main magnet" href="tel:+78123104531">Позвонить - подскажем цену</a>
+        <a class="btn btn-line magnet" href="#uslugi">Услуги и цены</a>
+      </div>
+      <div class="facts">
+        <div><b>от 500 ₽</b><small>замена батарейки</small></div>
+        <div><b>1 год</b><small>гарантия на батарейку</small></div>
+        <div><b>до 19:30</b><small>работаем</small></div>
+      </div>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="gear g1" data-depth="-0.25"><svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M56 4l2 10a37 37 0 0 1 10 4l8-6 10 10-6 8a37 37 0 0 1 4 10l10 2v14l-10 2a37 37 0 0 1-4 10l6 8-10 10-8-6a37 37 0 0 1-10 4l-2 10H44l-2-10a37 37 0 0 1-10-4l-8 6-10-10 6-8a37 37 0 0 1-4-10L4 56V44l10-2a37 37 0 0 1 4-10l-6-8 10-10 8 6a37 37 0 0 1 10-4l2-10zM50 30a20 20 0 1 0 0 40 20 20 0 0 0 0-40z"/></svg></div>
+      <div class="gear g2" data-depth="-0.4"><svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M56 4l2 10a37 37 0 0 1 10 4l8-6 10 10-6 8a37 37 0 0 1 4 10l10 2v14l-10 2a37 37 0 0 1-4 10l6 8-10 10-8-6a37 37 0 0 1-10 4l-2 10H44l-2-10a37 37 0 0 1-10-4l-8 6-10-10 6-8a37 37 0 0 1-4-10L4 56V44l10-2a37 37 0 0 1 4-10l-6-8 10-10 8 6a37 37 0 0 1 10-4l2-10zM50 30a20 20 0 1 0 0 40 20 20 0 0 0 0-40z"/></svg></div>
+      <div class="gear g3" data-depth="-0.15"><svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M56 4l2 10a37 37 0 0 1 10 4l8-6 10 10-6 8a37 37 0 0 1 4 10l10 2v14l-10 2a37 37 0 0 1-4 10l6 8-10 10-8-6a37 37 0 0 1-10 4l-2 10H44l-2-10a37 37 0 0 1-10-4l-8 6-10-10 6-8a37 37 0 0 1-4-10L4 56V44l10-2a37 37 0 0 1 4-10l-6-8 10-10 8 6a37 37 0 0 1 10-4l2-10zM50 30a20 20 0 1 0 0 40 20 20 0 0 0 0-40z"/></svg></div>
+      <div class="watch" id="watch">
+        <div class="bezel"></div>
+        <div class="dial">
+          <svg viewBox="0 0 400 400" aria-label="Часы показывают текущее время">
+            <g id="ticks"></g>
+            <text x="200" y="140" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="22" fill="#e2cfac" letter-spacing="2">Гороховая</text>
+            <text x="200" y="272" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="16" fill="#b8925a">Санкт-Петербург</text>
+            <line id="hh" class="hand" x1="200" y1="214" x2="200" y2="112" stroke="#f4efe6" stroke-width="8" stroke-linecap="round"/>
+            <line id="mh" class="hand" x1="200" y1="220" x2="200" y2="62" stroke="#f4efe6" stroke-width="4.5" stroke-linecap="round"/>
+            <line id="sh" class="hand" x1="200" y1="234" x2="200" y2="50" stroke="#c9a46c" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="200" cy="200" r="8" fill="#c9a46c"/>
+          </svg>
+        </div>
+        <div class="glass"></div>
+      </div>
+      <div class="cap">Часы показывают точное время Петербурга</div>
+    </div>
+  </div>
+</section>
+
+<section id="uslugi">
+  <div class="wrap">
+    <div class="head">
+      <h2>Услуги и цены</h2>
+      <p>Описание услуг - из карточки мастерской на Google Картах. Цены примерные, хозяин мастерской поправит их под себя.</p>
+    </div>
+    <div class="ledger">
+      <div class="row"><h3>Замена батарейки</h3><p>Только фирменные швейцарские и японские элементы. Гарантия - один год.</p><b><small>от</small>500 ₽</b></div>
+      <div class="row"><h3>Замена стекла</h3><p>Пластиковое, минеральное, сапфировое - изготовим и установим почти любое, разной формы.</p><b><small>от</small>1 200 ₽</b></div>
+      <div class="row"><h3>Ремешки и браслеты</h3><p>Замена и подгонка по руке - включая керамические браслеты, с которыми берутся не все.</p><b><small>от</small>400 ₽</b></div>
+      <div class="row"><h3>Ремонт механизма</h3><p>Отстают, спешат, остановились: чистка, смазка и регулировка механических и кварцевых часов.</p><b><small>от</small>2 500 ₽</b></div>
+      <div class="row"><h3>Настольные часы</h3><p>Ремонт настольных и каминных часов - вернём к жизни бабушкины часы.</p><b><small>от</small>3 000 ₽</b></div>
+      <div class="row"><h3>Осмотр часов</h3><p>Посмотрим при вас и скажем, что с часами и сколько стоит ремонт.</p><b style="font-size:22px">по телефону</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="pochemu" class="dark">
+  <div class="wrap split">
+    <div class="photo"><img src="https://images.unsplash.com/photo-1788125856697-04067c752525?auto=format&fit=crop&w=1000&q=80" alt="Часовщик с лупой осматривает механизм" loading="lazy"></div>
+    <div>
+      <div class="head" style="margin-bottom:30px"><h2>Мастерская, где не торопятся</h2></div>
+      <div class="list">
+        <div class="item"><i>I</i><div><h3>Только качественные детали</h3><p>Батарейки известных брендов - поэтому на них целый год гарантии.</p></div></div>
+        <div class="item"><i>II</i><div><h3>Любые часы</h3><p>И наручные, и настольные: от простых кварцевых до механики.</p></div></div>
+        <div class="item"><i>III</i><div><h3>Сложные браслеты</h3><p>Подгоняем керамику и металл аккуратно, без царапин.</p></div></div>
+        <div class="item"><i>IV</i><div><h3>В самом центре</h3><p>Гороховая, 38 - удобно зайти по пути.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="quote">
+      <div class="stars">★★★★★</div>
+      <blockquote>«И наручные часы, и настольные - ремонтируют все»</blockquote>
+      <small>Из отзыва на Google Картах · 4,3 из 33 отзывов · <a href="https://www.google.com/maps/search/?api=1&query=Часовая+мастерская+Гороховая+38+Санкт-Петербург" target="_blank" rel="noopener">читать все</a></small>
+    </div>
+  </div>
+</section>
+
+<section id="voprosy" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="faq-h">Частые вопросы</h2>
+    <div class="faq">
+      <details><summary>Сколько ждать ремонта?</summary><p>Батарейку и ремешок обычно меняют при вас. Ремонт механизма занимает больше времени - срок назовёт мастер после осмотра.</p></details>
+      <details><summary>Какая гарантия на батарейку?</summary><p>Год - так указано в карточке мастерской на Google Картах. Ставят только швейцарские и японские батарейки.</p></details>
+      <details><summary>Ремонтируете старые часы?</summary><p>Да, и наручные, и настольные. Принесите - мастер посмотрит и скажет, можно ли их восстановить.</p></details>
+      <details><summary>Как оплатить?</summary><p>Способы оплаты уточняйте по телефону.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="kontakty" style="padding-top:0">
+  <div class="wrap">
+    <div class="contacts">
+      <div class="c-info">
+        <h2 style="margin-bottom:20px">Ждём в мастерской</h2>
+        <div class="c-row"><small>Адрес</small><b>Санкт-Петербург, Гороховая ул., 38</b></div>
+        <div class="c-row"><small>Телефон</small><b><a href="tel:+78123104531">8 (812) 310-45-31</a></b></div>
+        <div class="c-row"><small>Время работы</small><b>До 19:30</b><small>Точный график - по телефону</small></div>
+        <div class="actions">
+          <a class="btn btn-main" href="tel:+78123104531">Позвонить</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&destination=59.9278435,30.3232685" target="_blank" rel="noopener">Маршрут</a>
+        </div>
+      </div>
+      <div class="c-map"><iframe src="https://www.google.com/maps?q=59.9278435,30.3232685&z=16&output=embed" loading="lazy" title="Карта: часовая мастерская"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© Часовая мастерская, Санкт-Петербург, Гороховая, 38 · Демо-проект</div></footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&destination=59.9278435,30.3232685" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn btn-main" href="tel:+78123104531">Позвонить</a>
+</div>
+
+<script>
+// Живые часы: деления и стрелки по текущему времени
+(function(){
+  var ns = 'http://www.w3.org/2000/svg', g = document.getElementById('ticks');
+  for (var i = 0; i < 60; i++) {
+    var l = document.createElementNS(ns, 'line'), big = i % 5 === 0;
+    l.setAttribute('x1', 200); l.setAttribute('y1', big ? 26 : 24);
+    l.setAttribute('x2', 200); l.setAttribute('y2', big ? 52 : 34);
+    l.setAttribute('stroke', big ? '#e2cfac' : '#6f7a93');
+    l.setAttribute('stroke-width', big ? 4 : 1.5);
+    l.setAttribute('transform', 'rotate(' + i * 6 + ' 200 200)');
+    g.appendChild(l);
+  }
+  var hh = document.getElementById('hh'), mh = document.getElementById('mh'), sh = document.getElementById('sh');
+  var lastS = -1;
+  function tick(){
+    // время Петербурга (UTC+3), а не время на компьютере посетителя
+    var d = new Date(Date.now() + 3 * 3600 * 1000), s = d.getUTCSeconds(), m = d.getUTCMinutes() + s / 60, h = d.getUTCHours() % 12 + m / 60;
+    // когда секундная стрелка переходит через 12, отключаем анимацию, чтобы она не крутилась назад
+    sh.style.transition = (s === 0 || lastS === -1) ? 'none' : '';
+    hh.style.transform = 'rotate(' + h * 30 + 'deg)';
+    mh.style.transform = 'rotate(' + m * 6 + 'deg)';
+    sh.style.transform = 'rotate(' + s * 6 + 'deg)';
+    lastS = s;
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // Часы поворачиваются за мышкой, как настоящие в руке; на телефоне стоят в лёгком наклоне
+  var w = document.getElementById('watch');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(hover: hover)').matches) {
+    window.addEventListener('mousemove', function(e){
+      var x = e.clientX / innerWidth - 0.5, y = e.clientY / innerHeight - 0.5;
+      w.style.transform = 'rotateX(' + (-y * 22) + 'deg) rotateY(' + (x * 26) + 'deg)';
+    }, { passive: true });
+  } else {
+    w.style.transform = 'rotateX(8deg) rotateY(-12deg)';
+  }
+})();
+</script>
+<script src="../_obshee/zhivoe.js" defer></script>
+</body>
+</html>
