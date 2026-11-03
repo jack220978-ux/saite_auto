@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Вадим - живые сайты для малого бизнеса</title>
-<meta name="description" content="Делаю одностраничные сайты для малого бизнеса: в вашем стиле, с живыми анимациями и кнопкой заявки в мессенджер. Демо - бесплатно, до оплаты. 10 работ в Москве, Казани и Петербурге.">
+<title>Вадим - живые сайты для вашего бизнеса</title>
+<meta name="description" content="Делаю одностраничные сайты для вашего бизнеса: в вашем стиле, с живыми анимациями и кнопкой заявки в мессенджер. Демо - бесплатно, до оплаты. 10 работ в Москве, Казани и Петербурге.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -50,6 +50,22 @@ h1{font-family:var(--head);font-weight:800;font-size:clamp(36px,6.4vw,86px);line
 h1 .acc{color:var(--terracotta)}
 h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
 h1 .line > span{display:inline-block}
+/* живые буквы «вашего бизнеса»: плывут волной, переливаются, тянутся к мышке */
+h1 .line.tall{padding:.12em 0 .2em;margin:-.12em 0 -.14em}
+h1 .live{position:relative;display:inline-block;white-space:nowrap}
+h1 .ch{display:inline-block;animation:wave 2.6s ease-in-out infinite;animation-delay:calc(var(--i) * -.16s);translate:0 calc(var(--lift,0) * -.2em);scale:calc(1 + var(--lift,0) * .14);transition:translate .3s cubic-bezier(.2,.8,.2,1),scale .3s cubic-bezier(.2,.8,.2,1)}
+@keyframes wave{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-.07em) rotate(-3deg)}}
+h1 .acc .ch{animation:wave 2.6s ease-in-out infinite,glow 4s ease-in-out infinite;animation-delay:calc(var(--i) * -.16s),calc(var(--i) * -.3s)}
+@keyframes glow{0%,100%{color:var(--terracotta)}35%{color:#e8875f}65%{color:#a8432f}}
+/* волнистая линия под «вашего» течёт, как вода */
+h1 .squig{position:absolute;left:0;right:0;bottom:-.16em;height:.16em;overflow:hidden;pointer-events:none}
+h1 .squig svg{display:block;width:200%;height:100%;animation:flow 3s linear infinite}
+h1 .squig path{fill:none;stroke:var(--terracotta);stroke-width:4px;stroke-linecap:round;vector-effect:non-scaling-stroke}
+@keyframes flow{to{transform:translateX(-50%)}}
+h1.opened .line{overflow:visible}
+h1.jelly .live{animation:jelly .8s cubic-bezier(.2,1.4,.4,1)}
+@keyframes jelly{0%{scale:1}30%{scale:1.12 .88}50%{scale:.92 1.08}70%{scale:1.04 .97}100%{scale:1}}
+@media (prefers-reduced-motion:reduce){h1 .ch,h1 .acc .ch,h1 .squig svg{animation:none}}
 .hero-in p{font-size:clamp(17px,1.6vw,20px);color:#4b5559;margin:24px auto 34px;max-width:600px}
 .hero-in .actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 .stats{display:flex;justify-content:center;gap:clamp(22px,5vw,60px);margin-top:44px}
@@ -233,7 +249,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <div class="bar">
     <a href="#" class="logo" aria-label="Вадим - сайты для бизнеса">
       <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#1F2A2E"/><path d="M14 30 L32 15 L50 30 V49 H14 Z" fill="none" stroke="#F4EDE4" stroke-width="4" stroke-linejoin="round"/><circle cx="32" cy="33" r="5.5" fill="#C8553D"/><path d="M32 38 V46 M32 42 H36" stroke="#C8553D" stroke-width="4" stroke-linecap="round"/></svg>
-      <span><b>Вадим</b><small>сайты для малого бизнеса</small></span>
+      <span><b>Вадим</b><small>сайты для вашего бизнеса</small></span>
     </a>
     <nav>
       <a href="#raboty">Работы</a>
@@ -251,7 +267,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="hero-in">
     <div class="hello"><i>В</i>Привет, я Вадим</div>
-    <h1><span class="line"><span>Живые сайты</span></span><span class="line"><span>для малого</span></span><span class="line"><span class="acc">бизнеса</span></span></h1>
+    <h1 aria-label="Живые сайты для вашего бизнеса"><span class="line tall" aria-hidden="true"><span><span class="live">Живые</span> <span class="live">сайты</span></span></span><span class="line tall" aria-hidden="true"><span><span class="live">для</span> <span class="live">вашего<span class="squig"><svg viewBox="0 0 400 20" preserveAspectRatio="none"><path d="M0 10 Q 25 0 50 10 T 100 10 T 150 10 T 200 10 T 250 10 T 300 10 T 350 10 T 400 10"/></svg></span></span></span></span><span class="line tall" aria-hidden="true"><span class="acc live">бизнеса</span></span></h1>
     <p>Делаю одностраничные сайты, как эти 10 вокруг, - под вашу нишу, ваши правки и ваши задачи. С кнопкой заявки в мессенджер. Демо - бесплатно, до оплаты.</p>
     <div class="actions">
       <a class="btn btn-main" href="#zakaz">Заказать сайт</a>
@@ -356,7 +372,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <footer>
   <div class="wrap">
-    <span>© Вадим · живые сайты для малого бизнеса</span>
+    <span>© Вадим · живые сайты для вашего бизнеса</span>
     <span>Все работы на витрине - демо-проекты, компании их не заказывали.</span>
   </div>
 </footer>
@@ -477,6 +493,29 @@ var SITES = [
   document.querySelectorAll('.cell').forEach(function(c){
     c.addEventListener('mousemove', function(e){ var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
   });
+
+  // --- живые буквы заголовка: каждая буква - отдельный кусочек волны ---
+  var h1 = document.querySelector('h1'), chars = [], k = 0;
+  h1.querySelectorAll('.live').forEach(function(w){
+    var node = w.firstChild, txt = node.textContent;
+    // номер буквы идёт через весь заголовок - волна бежит сплошной
+    var html = txt.split('').map(function(c){ return '<span class="ch" style="--i:' + (k++) + '">' + c + '</span>'; }).join('');
+    var tmp = document.createElement('span'); tmp.innerHTML = html;
+    while (tmp.firstChild) w.insertBefore(tmp.firstChild, node);
+    w.removeChild(node);
+  });
+  chars = h1.querySelectorAll('.ch');
+  // строки обрезаются только пока заголовок выезжает, потом буквам можно подпрыгивать выше
+  setTimeout(function(){ h1.classList.add('opened'); }, reduce ? 0 : 1700);
+  // буквы рядом с мышкой приподнимаются и чуть растут
+  if (matchMedia('(hover:hover) and (pointer:fine)').matches && !reduce) {
+    document.querySelector('.hero').addEventListener('mousemove', function(e){
+      chars.forEach(function(c){ var r = c.getBoundingClientRect(), d = Math.hypot(e.clientX - r.left - r.width / 2, e.clientY - r.top - r.height / 2); c.style.setProperty('--lift', Math.max(0, 1 - d / 160).toFixed(3)); });
+    });
+    document.querySelector('.hero').addEventListener('mouseleave', function(){ chars.forEach(function(c){ c.style.setProperty('--lift', 0); }); });
+  }
+  // нажали на заголовок - слова пружинят, как желе
+  h1.addEventListener('pointerdown', function(){ if (reduce) return; h1.classList.remove('jelly'); void h1.offsetWidth; h1.classList.add('jelly'); });
 
   // --- живые кнопки: текст прокручивается, заливка идёт от курсора, волна от нажатия, «магнит» ---
   var finePointer = matchMedia('(hover:hover) and (pointer:fine)').matches;
