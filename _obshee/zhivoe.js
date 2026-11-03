@@ -25,6 +25,8 @@
     // страховка: страница никогда не «ездит» вбок на телефоне
     'html{overflow-x:clip}',
     '@media (max-width:360px){.mobile-bar{gap:6px!important;padding:8px 10px!important}.mobile-bar .btn{padding:12px 6px!important;font-size:14px!important;min-width:0}}',
+    // самые узкие экраны: длинные слова в вопросах и кнопках переносятся, а не вылезают
+    '@media (max-width:300px){summary,details p,.btn{overflow-wrap:anywhere}.btn{max-width:100%;white-space:normal;text-align:center}.cf-nav{gap:8px!important}.cf-btn{width:46px!important;height:46px!important;flex:none}}',
     '.rv{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}',
     '.rv.on{opacity:1;transform:none}',
     '#zh-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:999;background:var(--accent,var(--leather,var(--wine,#ff7a45)));transition:width .1s linear}',
@@ -235,6 +237,12 @@
         }
       });
     }
+    // Ячейки сетки по умолчанию не бывают уже своего содержимого - на очень узком
+    // экране из-за этого карточки вылезают вправо. Разрешаем им ужиматься.
+    document.querySelectorAll('body *').forEach(function (e) {
+      var p = e.parentElement;
+      if (p && /grid/.test(getComputedStyle(p).display) && getComputedStyle(e).minWidth === 'auto') e.style.minWidth = '0';
+    });
     fitText();
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitText);
     setTimeout(fitText, 1200);
