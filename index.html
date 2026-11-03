@@ -129,7 +129,9 @@ h2{font-family:var(--head);font-weight:700;font-size:clamp(32px,4.6vw,62px);line
 .cell::before{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at var(--mx,50%) var(--my,0%),rgba(200,85,61,.22),transparent 60%);opacity:0;transition:opacity .4s}
 .cell:hover::before{opacity:1}
 .cell > *{position:relative}
-.cell .ic{position:absolute;top:26px;left:30px;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:rgba(244,237,228,.08);font-size:24px}
+/* значок стоит в общем потоке сверху: текст его никогда не накрывает, даже на узком экране */
+.cell .ic{position:relative;flex:none;margin-bottom:auto;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:rgba(244,237,228,.08);font-size:24px}
+.cell .ic + h3{margin-top:22px}
 .cell h3{font-family:var(--head);font-size:21px;font-weight:600;margin-bottom:6px}
 .cell p{color:#aab6b8;font-size:15.5px}
 .c1{grid-column:span 3}.c2{grid-column:span 3}.c3{grid-column:span 2}.c4{grid-column:span 2}.c5{grid-column:span 2}
@@ -213,7 +215,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   h2{overflow-wrap:anywhere}
   .bento,.svc{grid-template-columns:minmax(0,1fr)}
   .cell{padding:22px 18px}
-  .cell .ic{left:18px;top:20px}
   .cell h3,.svc h3{font-size:clamp(16px,5.6vw,21px);overflow-wrap:anywhere}
   .c1 .big{font-size:min(46px,15vw)}
   .svc>div{padding:24px 18px;min-width:0}
