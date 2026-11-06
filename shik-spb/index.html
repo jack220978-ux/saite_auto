@@ -177,8 +177,8 @@ footer{padding:34px 0 100px;text-align:center;color:var(--muted);font-size:14px}
       </div>
     </div>
     <div class="covers">
-      <div class="c1"><img class="kb" src="https://images.unsplash.com/photo-1708234114270-16a791390e8d?auto=format&fit=crop&w=900&q=80" alt="Портниха за работой"></div>
-      <div class="c2" data-depth="-0.3"><img src="https://images.unsplash.com/photo-1633655442168-c6ef0ed2f984?auto=format&fit=crop&w=600&q=80" alt="Пальто на манекене"></div>
+      <div class="c1"><img class="kb" src="foto/1708234114270-16a791390e8d.jpg" alt="Портниха за работой"></div>
+      <div class="c2" data-depth="-0.3"><img src="foto/1633655442168-c6ef0ed2f984.jpg" alt="Пальто на манекене"></div>
       <div class="lbl" data-depth="-0.5">«Будто новый сшить»<small>из отзыва на Google Картах</small></div>
     </div>
   </div>
@@ -203,7 +203,7 @@ footer{padding:34px 0 100px;text-align:center;color:var(--muted);font-size:14px}
 
 <section style="padding-top:0">
   <div class="wrap split">
-    <div class="ph"><img src="https://images.unsplash.com/photo-1633655442356-ab2dbc69c772?auto=format&fit=crop&w=1000&q=80" alt="Портной подбирает пуговицы к ткани" loading="lazy"></div>
+    <div class="ph"><img src="foto/1633655442356-ab2dbc69c772.jpg" alt="Портной подбирает пуговицы к ткани" loading="lazy"></div>
     <div>
       <h2 style="margin-bottom:26px">Аккуратно, <i>как для себя</i></h2>
       <div class="list">
@@ -298,7 +298,7 @@ footer{padding:34px 0 100px;text-align:center;color:var(--muted);font-size:14px}
   if (!matchMedia('(hover: hover)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var peek = document.getElementById('peek'), img = document.getElementById('peekImg');
   document.querySelectorAll('#svc .row').forEach(function(r){
-    var src = 'https://images.unsplash.com/photo-' + r.getAttribute('data-img') + '?auto=format&fit=crop&w=520&q=80';
+    var src = 'foto/' + r.getAttribute('data-img') + '.jpg';
     new Image().src = src;
     r.addEventListener('mouseenter', function(){ img.src = src; peek.classList.add('on'); });
     r.addEventListener('mouseleave', function(){ peek.classList.remove('on'); });

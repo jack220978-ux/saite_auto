@@ -197,7 +197,7 @@ footer{padding:34px 0 100px;text-align:center;color:var(--muted);font-size:14px}
       </div>
     </div>
     <div class="arch">
-      <div class="frame"><img class="kb" src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=1000&q=80" alt="Мастер делает маникюр в салоне"></div>
+      <div class="frame"><img class="kb" src="foto/1632345031435-8727f6897d53.jpg" alt="Мастер делает маникюр в салоне"></div>
       <div class="glass" data-depth="-0.35">💅 Японский маникюр<small>и парафиновые ванночки</small></div>
     </div>
   </div>
@@ -226,8 +226,8 @@ footer{padding:34px 0 100px;text-align:center;color:var(--muted);font-size:14px}
       </div>
       <div>
         <div class="look">
-          <img id="lookA" src="https://images.unsplash.com/photo-1664650026748-698eefbdd325?auto=format&fit=crop&w=900&q=80" alt="Маникюр: Вишнёвый">
-          <img id="lookB" class="hide" src="https://images.unsplash.com/photo-1664650026748-698eefbdd325?auto=format&fit=crop&w=900&q=80" alt="">
+          <img id="lookA" src="foto/1664650026748-698eefbdd325.jpg" alt="Маникюр: Вишнёвый">
+          <img id="lookB" class="hide" src="foto/1664650026748-698eefbdd325.jpg" alt="">
         </div>
         <div class="lbl"><i></i><span id="lookN">Вишнёвый</span> · фото-пример оттенка</div>
       </div>
@@ -253,10 +253,10 @@ footer{padding:34px 0 100px;text-align:center;color:var(--muted);font-size:14px}
   <div class="wrap">
     <div class="head"><h2>Идеи для маникюра</h2><p>Фото-примеры. На сайте студии их заменят на работы мастеров - в 2ГИС у студии много своих фото.</p></div>
     <div class="gal">
-      <div class="g tilt glare"><img src="https://images.unsplash.com/photo-1610992015762-45dca7fa3a85?auto=format&fit=crop&w=600&q=80" alt="Нежно-розовый маникюр" loading="lazy"></div>
-      <div class="g tilt glare"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80" alt="Чёрный и черепаховый дизайн ногтей" loading="lazy"></div>
-      <div class="g tilt glare"><img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=600&q=80" alt="Маникюр с блёстками" loading="lazy"></div>
-      <div class="g tilt glare"><img src="https://images.unsplash.com/photo-1630843599725-32ead7671867?auto=format&fit=crop&w=600&q=80" alt="Белый маникюр" loading="lazy"></div>
+      <div class="g tilt glare"><img src="foto/1610992015762-45dca7fa3a85.jpg" alt="Нежно-розовый маникюр" loading="lazy"></div>
+      <div class="g tilt glare"><img src="foto/1604654894610-df63bc536371.jpg" alt="Чёрный и черепаховый дизайн ногтей" loading="lazy"></div>
+      <div class="g tilt glare"><img src="foto/1607779097040-26e80aa78e66.jpg" alt="Маникюр с блёстками" loading="lazy"></div>
+      <div class="g tilt glare"><img src="foto/1630843599725-32ead7671867.jpg" alt="Белый маникюр" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -314,7 +314,7 @@ footer{padding:34px 0 100px;text-align:center;color:var(--muted);font-size:14px}
   var btns = document.querySelectorAll('#sw button');
   var a = document.getElementById('lookA'), b = document.getElementById('lookB');
   var front = a, back = b, current = btns[0];
-  function url(id){ return 'https://images.unsplash.com/photo-' + id + '?auto=format&fit=crop&w=900&q=80'; }
+  function url(id){ return 'foto/' + id + '.jpg'; }
   function waLink(n){ return 'https://wa.me/79660061230?text=' + encodeURIComponent('Здравствуйте! Хочу записаться на маникюр, цвет: ' + n + '.'); }
   function color(btn){ return btn.getAttribute('data-c') || btn.style.backgroundColor; }
   btns.forEach(function(btn){ new Image().src = url(btn.getAttribute('data-img')); });
