@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>МАКЕТ - Пакеты и цены - витрина Вадима</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--graphite:#1F2A2E;--terracotta:#C8553D;--terracotta-2:#b14a34;--sand:#F4EDE4;--sage:#8AA39B;--milk:#FFFDF9;--muted:#6b7478;--line:#e3dbd0;--head:'Unbounded',sans-serif;--body:'Manrope',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);background:var(--sand);color:var(--graphite);line-height:1.6;font-size:17px}
+.wrap{max-width:1220px;margin:0 auto;padding:0 22px}
+header .bar{max-width:1220px;margin:14px auto 0;width:calc(100% - 28px);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 10px 10px 16px;border-radius:20px;background:rgba(255,253,249,.85);border:1px solid rgba(31,42,46,.08);box-shadow:0 12px 40px -24px rgba(31,42,46,.45)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo .lg{width:38px;height:38px;border-radius:12px;background:var(--graphite);color:var(--sand);display:grid;place-items:center;font-family:var(--head);font-size:14px;font-weight:700}
+.logo b{font-family:var(--head);font-weight:700;font-size:17px;display:block;line-height:1.1}
+.logo small{display:block;font-size:12.5px;color:var(--muted);font-weight:600}
+nav{display:flex;gap:26px;font-weight:600;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a.here{color:var(--terracotta)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:16px;font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .25s,box-shadow .25s,background .25s}
+.btn-main{background:var(--terracotta);color:#fff;box-shadow:0 16px 34px -14px rgba(200,85,61,.75)}
+.btn-main:hover{background:var(--terracotta-2);transform:translateY(-2px)}
+.btn-dark{background:var(--graphite);color:var(--milk)}
+.btn-sm{padding:11px 18px;font-size:15px;border-radius:12px}
+.hero{padding:80px 0 30px;text-align:center}
+.kicker{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta);margin-bottom:14px}
+h1{font-family:var(--head);font-weight:800;font-size:clamp(30px,4.6vw,54px);line-height:1.05;letter-spacing:-.02em}
+h1 .acc{color:var(--terracotta)}
+.sub{color:var(--muted);max-width:640px;margin:14px auto 0}
+.citytoggle{display:inline-flex;gap:6px;background:var(--milk);border:1px solid var(--line);border-radius:999px;padding:6px;margin-top:26px}
+.citytoggle button{border:0;border-radius:999px;padding:10px 22px;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;background:transparent;color:var(--muted)}
+.citytoggle button.on{background:var(--graphite);color:var(--milk)}
+.citynote{font-size:13.5px;color:var(--muted);margin-top:10px}
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:50px 0 70px}
+.pack{background:var(--milk);border:1px solid var(--line);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:14px;box-shadow:0 24px 50px -34px rgba(31,42,46,.35)}
+.pack.hot{border:2px solid var(--terracotta);position:relative}
+.pack .flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--terracotta);color:#fff;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:999px}
+.pack h3{font-family:var(--head);font-size:19px;font-weight:700}
+.pack .for{font-size:14px;color:var(--muted)}
+.pack .price{font-family:var(--head);font-weight:800;font-size:30px;letter-spacing:-.02em}
+.pack .price small{display:block;font-family:var(--body);font-weight:600;font-size:13px;color:var(--muted);letter-spacing:0;margin-top:2px}
+.pack ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:15px;flex:1}
+.pack ul li{padding-left:26px;position:relative}
+.pack ul li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:14px;border-radius:50%;background:var(--sage);opacity:.9}
+.pack ul li::after{content:"";position:absolute;left:4.5px;top:10.5px;width:5px;height:3px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+.pack .btn{justify-content:center}
+.anketa{background:var(--graphite);border-radius:28px;padding:46px;color:var(--milk);margin-bottom:70px}
+.anketa h2{font-family:var(--head);font-size:26px;font-weight:700;margin-bottom:6px}
+.anketa .sub{color:#b9c2c6;margin:0 0 26px}
+.anketa-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:34px}
+.anketa form{display:flex;flex-direction:column;gap:12px}
+.anketa label{font-size:13.5px;font-weight:700;color:#cfD8dB}
+.anketa input,.anketa textarea{width:100%;border:1px solid #3a484e;background:#26333a;color:var(--milk);border-radius:14px;padding:13px 16px;font-family:inherit;font-size:15px}
+.anketa textarea{min-height:84px;resize:vertical}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.checks span{border:1px solid #3a484e;border-radius:999px;padding:7px 14px;font-size:13.5px;color:#cfD8dB}
+.checks span.on{background:var(--terracotta);border-color:var(--terracotta);color:#fff}
+.anketa .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.tz{background:#26333a;border:1px solid #3a484e;border-radius:18px;padding:22px;font-size:14.5px;line-height:1.7}
+.tz b{display:block;font-family:var(--head);font-size:13px;color:var(--sage);margin-bottom:10px;letter-spacing:.06em;text-transform:uppercase}
+.tz .msg{white-space:pre-line;color:#e9eeef}
+.tz .hint{margin-top:14px;font-size:13px;color:#9fb0b5}
+footer{padding:30px 0 50px;text-align:center;color:var(--muted);font-size:14px}
+.maket-tag{position:fixed;right:18px;bottom:18px;background:var(--graphite);color:var(--sand);font-size:12px;font-weight:700;padding:8px 14px;border-radius:999px;opacity:.85}
+</style>
+</head>
+<body>
+
+<header><div class="bar">
+  <a class="logo" href="#"><span class="lg">В</span><span><b>Вадим</b><small>живые сайты</small></span></a>
+  <nav>
+    <a href="#">Работы</a>
+    <a href="#">Что внутри</a>
+    <a href="#" class="here">Пакеты и цены</a>
+    <a href="#">Как работаю</a>
+  </nav>
+  <a class="btn btn-main btn-sm" href="#">Заказать</a>
+</div></header>
+
+<section class="hero wrap">
+  <div class="kicker">Пакеты и цены</div>
+  <h1>Выберите пакет -<br><span class="acc">анкета соберёт ТЗ сама</span></h1>
+  <p class="sub">Цена зависит от вашего города: в миллионниках работа стоит дороже. Переключите - и увидите свою честную цену сразу, без переписки.</p>
+  <div class="citytoggle">
+    <button>Регионы</button>
+    <button class="on">Города-миллионники</button>
+  </div>
+  <div class="citynote">Сейчас показаны цены для: <b>Москва, Петербург, Казань и другие миллионники</b></div>
+</section>
+
+<section class="wrap packs">
+  <div class="pack">
+    <h3>Эконом</h3>
+    <div class="for">Проверить нишу или заменить визитку «на коленке»</div>
+    <div class="price">8 000 - 12 000 &#8381;<small>в регионах 6 000 - 8 000 &#8381;</small></div>
+    <ul>
+      <li>Одностраничный сайт по проверенному шаблону</li>
+      <li>5-7 блоков: услуги, цены, контакты</li>
+      <li>Тексты соберу с помощью ИИ под вашу нишу</li>
+      <li>Кнопка заявки в ваш мессенджер</li>
+      <li>Срок: 2-3 дня</li>
+    </ul>
+    <a class="btn btn-dark" href="#">Заполнить анкету</a>
+  </div>
+
+  <div class="pack hot">
+    <div class="flag">Выбирают чаще</div>
+    <h3>Стандарт</h3>
+    <div class="for">Работающий бизнес, которому нужны заявки</div>
+    <div class="price">20 000 - 30 000 &#8381;<small>в регионах 15 000 - 20 000 &#8381;</small></div>
+    <ul>
+      <li>Сайт в стиле вашего бизнеса, 5-7 страниц или лендинг 10-12 блоков</li>
+      <li>Живые анимации как на демо в витрине</li>
+      <li>Квиз-форма: клиент отвечает на 3-4 вопроса - вы получаете готовую заявку</li>
+      <li>Отзывы с Карт, фото, карта проезда</li>
+      <li>Обучу править самому. Срок: 5-7 дней</li>
+    </ul>
+    <a class="btn btn-main" href="#">Заполнить анкету</a>
+  </div>
+
+  <div class="pack">
+    <h3>Продвинутый</h3>
+    <div class="for">Вкладываетесь в рекламу и считаете заявки</div>
+    <div class="price">50 000 - 80 000 &#8381;<small>в регионах 30 000 - 50 000 &#8381;</small></div>
+    <ul>
+      <li>Уникальный дизайн ключевых экранов</li>
+      <li>Структура продаж: от первого экрана до заявки</li>
+      <li>Магазин: каталог до 50 товаров, корзина, оплата</li>
+      <li>Интеграции: оплата, доставка, уведомления в мессенджер</li>
+      <li>2 недели поддержки после запуска</li>
+    </ul>
+    <a class="btn btn-dark" href="#">Заполнить анкету</a>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="anketa">
+    <h2>Так выглядит анкета пакета «Стандарт»</h2>
+    <p class="sub">Откроется по кнопке. Пять коротких полей - и у меня на руках готовое ТЗ, без переписки «а что входит?»</p>
+    <div class="anketa-grid">
+      <form>
+        <label>Чем занимаетесь?</label>
+        <input value="Кондитерская, торты на заказ">
+        <label>Ваш город</label>
+        <input value="Казань">
+        <label>Что должно быть на сайте</label>
+        <div class="checks">
+          <span class="on">Услуги и цены</span><span class="on">Фото работ</span><span>Отзывы</span><span class="on">Карта проезда</span><span>Квиз</span><span>Онлайн-оплата</span>
+        </div>
+        <label>Ссылка на сайт, который нравится (пример)</label>
+        <input value="https://пример-торты.рф">
+        <label>Окно пожеланий</label>
+        <textarea>Хочу спокойные цвета как у примера, калькулятор торта и запись в WhatsApp</textarea>
+        <div class="actions">
+          <a class="btn btn-main btn-sm" href="#">Написать в MAX</a>
+          <a class="btn btn-dark btn-sm" style="background:#37464d" href="#">Telegram</a>
+          <a class="btn btn-dark btn-sm" style="background:#37464d" href="#">WhatsApp</a>
+        </div>
+      </form>
+      <div class="tz">
+        <b>Так это прилетит вам в мессенджер</b>
+        <div class="msg">Заявка: пакет «Стандарт» (20 000 - 30 000 &#8381;, миллионник)
+Ниша: кондитерская, торты на заказ
+Город: Казань
+Нужно: услуги и цены, фото работ, карта проезда
+Сайт-пример: https://пример-торты.рф
+Пожелания: спокойные цвета как у примера, калькулятор торта, запись в WhatsApp</div>
+        <div class="hint">Вы отвечаете уже по существу: ценой, сроком, примером из витрины. Праздные вопросы отсеиваются сами.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Сделано вручную с ИИ - Вадим, живые сайты для вашего бизнеса</footer>
+
+<div class="maket-tag">МАКЕТ - для обсуждения</div>
+
+</body>
+</html>

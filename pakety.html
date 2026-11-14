@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Пакеты и цены - Вадим, живые сайты</title>
+<meta name="description" content="Три пакета сайтов для малого бизнеса: Эконом, Стандарт и Продвинутый. Цена подстраивается под ваш город автоматически. Анкета за минуту - и готовое ТЗ прилетает в мессенджер.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--graphite:#1F2A2E;--graphite-2:#2a383d;--terracotta:#C8553D;--terracotta-2:#b14a34;--sand:#F4EDE4;--sage:#8AA39B;--milk:#FFFDF9;--warm-gray:#E7E2DA;--muted:#6b7478;--line:#e3dbd0;--head:'Unbounded',sans-serif;--body:'Manrope',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip}
+body{font-family:var(--body);background:var(--sand);color:var(--graphite);line-height:1.6;font-size:17px}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--terracotta);outline-offset:3px}
+.wrap{max-width:1220px;margin:0 auto;padding:0 22px}
+/* Шапка - как на главной */
+header{position:fixed;top:14px;left:0;width:100%;z-index:50;pointer-events:none}
+header .bar{pointer-events:auto;max-width:1220px;margin:0 auto;width:calc(100% - 28px);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 10px 10px 16px;border-radius:20px;background:rgba(255,253,249,.72);backdrop-filter:blur(16px) saturate(160%);border:1px solid rgba(31,42,46,.08);box-shadow:0 12px 40px -24px rgba(31,42,46,.45)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo svg{width:38px;height:38px;flex:none}
+.logo b{font-family:var(--head);font-weight:700;font-size:17px;display:block;line-height:1.1}
+.logo small{display:block;font-size:12.5px;color:var(--muted);font-weight:600}
+nav{display:flex;gap:26px;font-weight:600;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--graphite)}
+nav a.here{color:var(--terracotta)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:16px;font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .25s,box-shadow .25s,background .25s}
+.btn-main{background:var(--terracotta);color:#fff;box-shadow:0 16px 34px -14px rgba(200,85,61,.75)}
+.btn-main:hover{background:var(--terracotta-2);transform:translateY(-2px)}
+.btn-dark{background:var(--graphite);color:var(--milk)}
+.btn-dark:hover{transform:translateY(-2px)}
+.btn-sm{padding:11px 18px;font-size:15px;border-radius:12px}
+/* Первый экран */
+.hero{padding:150px 0 30px;text-align:center}
+.kicker{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta);margin-bottom:14px}
+h1{font-family:var(--head);font-weight:800;font-size:clamp(30px,4.6vw,54px);line-height:1.05;letter-spacing:-.02em}
+h1 .acc{color:var(--terracotta)}
+.sub{color:var(--muted);max-width:640px;margin:14px auto 0}
+.cityline{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:10px 20px;border-radius:999px;background:var(--milk);border:1px solid var(--line);font-size:14.5px;font-weight:600}
+.cityline i{width:10px;height:10px;border-radius:50%;background:var(--sage);flex:none}
+.cityline b{color:var(--terracotta)}
+/* Карточки пакетов */
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:50px 0 80px}
+.pack{background:var(--milk);border:1px solid var(--line);border-radius:24px;padding:30px 28px;display:flex;flex-direction:column;gap:14px;box-shadow:0 24px 50px -34px rgba(31,42,46,.35);position:relative}
+.pack.hot{border:2px solid var(--terracotta)}
+.pack .flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--terracotta);color:#fff;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:999px;white-space:nowrap}
+.pack h3{font-family:var(--head);font-size:19px;font-weight:700}
+.pack .for{font-size:14px;color:var(--muted)}
+.pack .price{font-family:var(--head);font-weight:800;font-size:28px;letter-spacing:-.02em;min-height:40px}
+.pack .price small{display:block;font-family:var(--body);font-weight:600;font-size:13px;color:var(--muted);margin-top:2px}
+.pack ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:15px;flex:1}
+.pack ul li{padding-left:26px;position:relative}
+.pack ul li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:14px;border-radius:50%;background:var(--sage);opacity:.9}
+.pack ul li::after{content:"";position:absolute;left:4.5px;top:10.5px;width:5px;height:3px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+.pack .btn{justify-content:center}
+/* Анкета */
+.anketa{background:var(--graphite);border-radius:28px;padding:46px;color:var(--milk);margin-bottom:80px}
+.anketa h2{font-family:var(--head);font-size:clamp(20px,3vw,26px);font-weight:700;margin-bottom:6px}
+.anketa .sub{color:#b9c2c6;margin:0 0 26px;max-width:none}
+.anketa-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:34px}
+.anketa form{display:flex;flex-direction:column;gap:12px}
+.anketa label{font-size:13.5px;font-weight:700;color:#cfd8db}
+.anketa input,.anketa textarea{width:100%;border:1px solid #3a484e;background:#26333a;color:var(--milk);border-radius:14px;padding:13px 16px;font-family:inherit;font-size:15px}
+.anketa input::placeholder,.anketa textarea::placeholder{color:#7f9099}
+.anketa textarea{min-height:84px;resize:vertical}
+.packpicker{display:flex;gap:8px;flex-wrap:wrap}
+.packpicker button{border:1px solid #3a484e;background:transparent;color:#cfd8db;border-radius:999px;padding:9px 18px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer}
+.packpicker button.on{background:var(--terracotta);border-color:var(--terracotta);color:#fff}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.checks button{border:1px solid #3a484e;background:transparent;border-radius:999px;padding:7px 14px;font-size:13.5px;color:#cfd8db;font-family:inherit;cursor:pointer}
+.checks button.on{background:var(--terracotta);border-color:var(--terracotta);color:#fff}
+.anketa .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.anketa .hintline{font-size:13px;color:#9fb0b5}
+.tz{background:#26333a;border:1px solid #3a484e;border-radius:18px;padding:22px;font-size:14.5px;line-height:1.7;align-self:start}
+.tz b{display:block;font-family:var(--head);font-size:13px;color:var(--sage);margin-bottom:10px;letter-spacing:.06em;text-transform:uppercase}
+.tz .msg{white-space:pre-line;color:#e9eeef}
+.tz .hint{margin-top:14px;font-size:13px;color:#9fb0b5}
+/* Подвал */
+footer{padding:34px 0 46px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:14.5px}
+footer a{color:var(--terracotta);text-decoration:none}
+@media (max-width:980px){
+  .packs{grid-template-columns:1fr;max-width:560px;margin:0 auto}
+  .anketa-grid{grid-template-columns:1fr}
+  nav{display:none}
+  .anketa{padding:30px 22px}
+}
+@media (max-width:560px){
+  h1{font-size:26px}
+  h1 br{display:none}
+  .pack .price{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<header><div class="bar">
+  <a class="logo" href="/" aria-label="На главную - витрина сайтов">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="18" fill="#1F2A2E"/><path d="M14 30 L32 15 L50 30 V49 H14 Z" fill="none" stroke="#F4EDE4" stroke-width="4" stroke-linejoin="round"/><circle cx="32" cy="33" r="5.5" fill="#C8553D"/><path d="M32 38 V46 M32 42 H36" stroke="#C8553D" stroke-width="4" stroke-linecap="round"/></svg>
+    <span><b>Вадим</b><small>живые сайты</small></span>
+  </a>
+  <nav>
+    <a href="/#raboty">Работы</a>
+    <a href="/#chto-vnutri">Что внутри</a>
+    <a href="pakety.html" class="here">Пакеты и цены</a>
+    <a href="/#kak">Как работаю</a>
+  </nav>
+  <a class="btn btn-main btn-sm" href="/#zakaz">Заказать</a>
+</div></header>
+
+<main class="wrap">
+
+<section class="hero">
+  <div class="kicker">Пакеты и цены</div>
+  <h1>Выберите пакет - <br><span class="acc">анкета соберёт ТЗ сама</span></h1>
+  <p class="sub">Три готовых набора под задачи малого бизнеса. Цена зависит от вашего города - мы определили его автоматически, выбирать ничего не нужно.</p>
+  <div class="cityline"><i></i><span id="gorodLine">Определяем ваш город…</span></div>
+</section>
+
+<section class="packs" id="packs" aria-label="Пакеты услуг"></section>
+
+<section class="anketa" id="anketa">
+  <h2>Анкета - готовое ТЗ за минуту</h2>
+  <p class="sub">Пять коротких полей. Сообщение соберётся само и прилетит мне в мессенджер - отвечу по существу: сроком и примером под вашу нишу.</p>
+  <div class="anketa-grid">
+    <form onsubmit="return false">
+      <label>Пакет</label>
+      <div class="packpicker" id="packPicker"></div>
+      <label for="fNiche">Чем занимаетесь?</label>
+      <input id="fNiche" placeholder="Например: кондитерская, торты на заказ">
+      <label for="fCity">Ваш город</label>
+      <input id="fCity" placeholder="Определим автоматически - можно поправить">
+      <label>Что должно быть на сайте</label>
+      <div class="checks" id="checks"></div>
+      <label for="fExample">Ссылка на сайт, который нравится (пример)</label>
+      <input id="fExample" placeholder="https://...">
+      <label for="fWish">Окно пожеланий</label>
+      <textarea id="fWish" placeholder="Например: спокойные цвета, калькулятор цены, запись в WhatsApp"></textarea>
+      <div class="actions">
+        <a class="btn btn-main btn-sm" id="sendMax" href="#" target="_blank" rel="noopener">Написать в MAX</a>
+        <a class="btn btn-dark btn-sm" id="sendTg" href="#" target="_blank" rel="noopener" style="background:#37464d">Telegram</a>
+        <a class="btn btn-dark btn-sm" id="sendWa" href="#" target="_blank" rel="noopener" style="background:#37464d">WhatsApp</a>
+      </div>
+      <div class="hintline" id="sendHint">Нажмёте - откроется мессенджер с готовым текстом.</div>
+    </form>
+    <div class="tz" aria-live="polite">
+      <b>Так это прилетит мне</b>
+      <div class="msg" id="tzMsg"></div>
+      <div class="hint">Проверьте текст - и отправляйте. Никакой переписки «а что входит» не понадобится.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Вадим · живые сайты для вашего бизнеса</span>
+    <span><a href="/">← Назад на витрину</a></span>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+//  ДАННЫЕ СТРАНИЦЫ - править здесь, остальное не трогать
+// ============================================================
+
+// Контакты - те же, что на главной (index.html). Если меняете там -
+// поменяйте и здесь.
+var CONTACT = {
+  max: 'https://max.ru/u/f9LHodD0cOJ_vQ9h4rVL3jrvMnj8K1f0FIcqn7cHJMQUNYrrIljw-24Wddg',
+  telegram: '',
+  whatsapp: ''
+};
+
+// Пакеты: цены - две колонки, регион и миллионник.
+// Посетитель видит только свою колонку (город определяет сайт).
+var PAKETY = [
+  {
+    id: 'ekonom', nazvanie: 'Эконом',
+    dlya: 'Проверить нишу или заменить визитку «на коленке»',
+    region: [6000, 8000], millionnik: [8000, 12000],
+    sostav: [
+      'Одностраничный сайт по проверенному шаблону',
+      '5-7 блоков: услуги, цены, контакты',
+      'Тексты соберу с помощью ИИ под вашу нишу',
+      'Кнопка заявки в ваш мессенджер',
+      'Срок: 2-3 дня'
+    ]
+  },
+  {
+    id: 'standart', nazvanie: 'Стандарт', hot: true,
+    dlya: 'Работающий бизнес, которому нужны заявки',
+    region: [15000, 20000], millionnik: [20000, 30000],
+    sostav: [
+      'Сайт в стиле вашего бизнеса: 5-7 страниц или лендинг 10-12 блоков',
+      'Живые анимации, как на демо в витрине',
+      'Квиз-форма: клиент отвечает на 3-4 вопроса - вы получаете готовую заявку',
+      'Отзывы с Карт, фото, карта проезда',
+      'Обучу править самому. Срок: 5-7 дней'
+    ]
+  },
+  {
+    id: 'pro', nazvanie: 'Продвинутый',
+    dlya: 'Вкладываетесь в рекламу и считаете заявки',
+    region: [30000, 50000], millionnik: [50000, 80000],
+    sostav: [
+      'Уникальный дизайн ключевых экранов',
+      'Структура продаж: от первого экрана до заявки',
+      'Магазин: каталог до 50 товаров, корзина, оплата',
+      'Интеграции: оплата, доставка, уведомления в мессенджер',
+      '2 недели поддержки после запуска'
+    ]
+  }
+];
+
+// Галочки «что должно быть на сайте»
+var BLOKI = ['Услуги и цены', 'Фото работ', 'Отзывы', 'Карта проезда', 'Квиз-форма', 'Онлайн-оплата', 'Каталог товаров'];
+
+// ============================================================
+//  ДАЛЬШЕ - МЕХАНИКА, без необходимости не править
+// ============================================================
+
+// Колонка цен по умолчанию - миллионник (запасной вариант из замысла:
+// если город не определился, не продаём дешевле).
+var kolonka = 'millionnik';
+var cityName = '';
+var tekuschiPaket = 'standart';
+
+function rub(n){ return n.toLocaleString('ru-RU'); }
+function cena(p){ return rub(p[kolonka][0]) + ' - ' + rub(p[kolonka][1]) + ' ₽'; }
+function paketPoId(id){ return PAKETY.filter(function(p){ return p.id === id; })[0]; }
+
+// --- карточки пакетов ---
+(function risuemPakety(){
+  var host = document.getElementById('packs');
+  host.innerHTML = '';
+  PAKETY.forEach(function(p){
+    var el = document.createElement('div');
+    el.className = 'pack' + (p.hot ? ' hot' : '');
+    el.innerHTML =
+      (p.hot ? '<div class="flag">Выбирают чаще</div>' : '') +
+      '<h3>' + p.nazvanie + '</h3>' +
+      '<div class="for">' + p.dlya + '</div>' +
+      '<div class="price">' + cena(p) + '</div>' +
+      '<ul>' + p.sostav.map(function(s){ return '<li>' + s + '</li>'; }).join('') + '</ul>' +
+      '<button type="button" class="btn ' + (p.hot ? 'btn-main' : 'btn-dark') + '" data-paket="' + p.id + '">Заполнить анкету</button>';
+    host.appendChild(el);
+  });
+  host.querySelectorAll('button[data-paket]').forEach(function(b){
+    b.addEventListener('click', function(){
+      vybratPaket(b.dataset.paket);
+      document.getElementById('anketa').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+})();
+
+// --- переключатель пакета внутри анкеты ---
+(function risuemPicker(){
+  var host = document.getElementById('packPicker');
+  PAKETY.forEach(function(p){
+    var b = document.createElement('button');
+    b.type = 'button'; b.textContent = p.nazvanie; b.dataset.paket = p.id;
+    if (p.id === tekuschiPaket) b.classList.add('on');
+    b.addEventListener('click', function(){ vybratPaket(p.id); });
+    host.appendChild(b);
+  });
+})();
+function vybratPaket(id){
+  tekuschiPaket = id;
+  document.querySelectorAll('#packPicker button').forEach(function(b){
+    b.classList.toggle('on', b.dataset.paket === id);
+  });
+  obnovitTZ();
+}
+
+// --- галочки блоков ---
+(function risuemChecki(){
+  var host = document.getElementById('checks');
+  BLOKI.forEach(function(nazv, i){
+    var b = document.createElement('button');
+    b.type = 'button'; b.textContent = nazv;
+    if (i < 2) b.classList.add('on');
+    b.addEventListener('click', function(){ b.classList.toggle('on'); obnovitTZ(); });
+    host.appendChild(b);
+  });
+})();
+function vybrannyeBloki(){
+  var out = [];
+  document.querySelectorAll('#checks button.on').forEach(function(b){ out.push(b.textContent); });
+  return out;
+}
+
+// --- текст ТЗ и ссылки мессенджеров ---
+function tekstTZ(){
+  var p = paketPoId(tekuschiPaket);
+  var niche = document.getElementById('fNiche').value.trim();
+  var city = document.getElementById('fCity').value.trim();
+  var primer = document.getElementById('fExample').value.trim();
+  var wish = document.getElementById('fWish').value.trim();
+  var bloki = vybrannyeBloki();
+  var t = 'Здравствуйте, Вадим! Заявка с витрины: пакет «' + p.nazvanie + '».';
+  t += '\nЦена на сайте для меня: ' + cena(p);
+  if (niche) t += '\nБизнес: ' + niche;
+  if (city) t += '\nГород: ' + city;
+  if (bloki.length) t += '\nНужно на сайте: ' + bloki.join(', ');
+  if (primer) t += '\nСайт-пример: ' + primer;
+  if (wish) t += '\nПожелания: ' + wish;
+  return t;
+}
+function obnovitTZ(){
+  var t = tekstTZ();
+  document.getElementById('tzMsg').textContent = t;
+  var enc = encodeURIComponent(t);
+  document.getElementById('sendTg').href = CONTACT.telegram ? 'https://t.me/' + CONTACT.telegram + '?text=' + enc : '#anketa';
+  document.getElementById('sendWa').href = CONTACT.whatsapp ? 'https://wa.me/' + CONTACT.whatsapp + '?text=' + enc : '#anketa';
+  document.getElementById('sendMax').href = CONTACT.max || '#anketa';
+}
+
+// кнопки без контакта прячем (как на главной); MAX не принимает текст
+// по ссылке - копируем его в буфер заранее
+['max:sendMax','telegram:sendTg','whatsapp:sendWa'].forEach(function(par){
+  var p = par.split(':');
+  if (!CONTACT[p[0]]) document.getElementById(p[1]).style.display = 'none';
+});
+document.getElementById('sendMax').addEventListener('click', function(){
+  var hint = document.getElementById('sendHint');
+  try {
+    navigator.clipboard.writeText(tekstTZ()).then(function(){
+      hint.textContent = 'Текст скопирован - вставьте его в MAX и отправьте.';
+    });
+  } catch(e) {}
+});
+['fNiche','fCity','fExample','fWish'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', obnovitTZ);
+});
+obnovitTZ();
+
+// --- автоопределение города через свою функцию на Vercel ---
+(function opredelimGorod(){
+  var line = document.getElementById('gorodLine');
+  function primenit(kol, gorod){
+    kolonka = kol;
+    if (gorod) {
+      cityName = gorod;
+      var fCity = document.getElementById('fCity');
+      if (!fCity.value.trim()) fCity.value = gorod;
+    }
+    risuemPaketyPovtorno();
+    obnovitTZ();
+  }
+  function risuemPaketyPovtorno(){
+    document.querySelectorAll('#packs .pack').forEach(function(el, i){
+      el.querySelector('.price').textContent = cena(PAKETY[i]);
+    });
+  }
+  // По умолчанию уже показана колонка миллионника (см. выше)
+  line.innerHTML = 'Показываем цены для вашего города';
+  if (!window.fetch) return;
+  fetch('/api/geo', { headers: { 'Accept': 'application/json' } })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){
+      if (!d || !d.kolonka) return;
+      if (d.opredelen && d.city) {
+        line.innerHTML = 'Ваш город: <b>&nbsp;' + d.city + '</b>&nbsp;- цена уже ваша';
+      }
+      primenit(d.kolonka === 'region' ? 'region' : 'millionnik', d.city || '');
+    })
+    .catch(function(){ /* сбой: остаётся цена миллионника */ });
+})();
+</script>
+</body>
+</html>
