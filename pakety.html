@@ -424,7 +424,19 @@ document.getElementById('sendMax').addEventListener('click', function(){
   });
 })();
 
-// --- автоопределение города через свою функцию на Vercel ---
+// --- автоопределение города ---
+// Сначала пробуем свою функцию /api/geo (работает на Vercel-зеркале).
+// Если её нет (основной сайт в Яндекс Облаке) - спрашиваем гео-сервис
+// ipwho.is напрямую из браузера. При полном сбое остаётся колонка
+// миллионника (договорённость: в спорном случае не продаём дешевле).
+var MILLIONNIKI_LAT = { 'moscow': 'Москва', 'saint petersburg': 'Санкт-Петербург',
+  'novosibirsk': 'Новосибирск', 'yekaterinburg': 'Екатеринбург', 'kazan': 'Казань',
+  'nizhny novgorod': 'Нижний Новгород', 'chelyabinsk': 'Челябинск',
+  'krasnoyarsk': 'Красноярск', 'samara': 'Самара', 'ufa': 'Уфа',
+  'rostov-on-don': 'Ростов-на-Дону', 'rostov': 'Ростов-на-Дону', 'omsk': 'Омск',
+  'krasnodar': 'Краснодар', 'voronezh': 'Воронеж', 'perm': 'Пермь',
+  'volgograd': 'Волгоград' };
+
 (function opredelimGorod(){
   var line = document.getElementById('gorodLine');
   function primenit(kol, gorod){
@@ -438,20 +450,34 @@ document.getElementById('sendMax').addEventListener('click', function(){
     obnovitCeny();
     obnovitTZ();
   }
-  // По умолчанию уже показана колонка миллионника (см. выше)
+  function pokazatGorod(gorod){
+    line.innerHTML = 'Ваш город: <b>&nbsp;' + escHtml(gorod) + '</b>&nbsp;- цена уже ваша';
+    geoLineHtml = line.innerHTML;
+  }
   line.innerHTML = 'Показываем цены для вашего города';
   if (!window.fetch) return;
   fetch('/api/geo', { headers: { 'Accept': 'application/json' } })
     .then(function(r){ return r.ok ? r.json() : null; })
     .then(function(d){
-      if (!d || !d.kolonka) return;
-      if (d.opredelen && d.city) {
-        line.innerHTML = 'Ваш город: <b>&nbsp;' + escHtml(d.city) + '</b>&nbsp;- цена уже ваша';
-        geoLineHtml = line.innerHTML;
+      if (d && d.kolonka) {
+        if (d.opredelen && d.city) pokazatGorod(d.city);
+        primenit(d.kolonka === 'region' ? 'region' : 'millionnik', d.city || '');
+        return;
       }
-      primenit(d.kolonka === 'region' ? 'region' : 'millionnik', d.city || '');
+      throw 0; // функции нет - идём в гео-сервис
     })
-    .catch(function(){ /* сбой: остаётся цена миллионника */ });
+    .catch(function(){
+      fetch('https://ipwho.is/', { headers: { 'Accept': 'application/json' } })
+        .then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(d){
+          if (!d || d.success === false || !d.city) return;
+          var lat = String(d.city).toLowerCase().trim();
+          var ru = MILLIONNIKI_LAT[lat];
+          if (ru) { pokazatGorod(ru); primenit('millionnik', ru); }
+          else { pokazatGorod(d.city); primenit('region', d.city); }
+        })
+        .catch(function(){ /* сбой: остаётся цена миллионника */ });
+    });
 })();
 </script>
 </body>
