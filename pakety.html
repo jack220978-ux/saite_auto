@@ -67,10 +67,12 @@ h1 .acc{color:var(--terracotta)}
 .anketa input::placeholder,.anketa textarea::placeholder{color:#7f9099}
 .anketa textarea{min-height:84px;resize:vertical}
 .packpicker{display:flex;gap:8px;flex-wrap:wrap}
-.packpicker button{border:1px solid #3a484e;background:transparent;color:#cfd8db;border-radius:999px;padding:9px 18px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer}
+.packpicker button{border:1px solid #3a484e;background:transparent;color:#cfd8db;border-radius:999px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
 .packpicker button.on{background:var(--terracotta);border-color:var(--terracotta);color:#fff}
-.checks{display:flex;flex-wrap:wrap;gap:8px}
-.checks button{border:1px solid #3a484e;background:transparent;border-radius:999px;padding:7px 14px;font-size:13.5px;color:#cfd8db;font-family:inherit;cursor:pointer}
+.checks{display:flex;flex-direction:column;gap:8px}
+.checks .gruppa{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.checks .gruppa span{width:100%;font-size:11.5px;font-weight:800;color:#8fa0a7;letter-spacing:.07em;text-transform:uppercase}
+.checks button{border:1px solid #3a484e;background:transparent;border-radius:999px;padding:5px 12px;font-size:12.5px;color:#cfd8db;font-family:inherit;cursor:pointer}
 .checks button.on{background:var(--terracotta);border-color:var(--terracotta);color:#fff}
 .anketa .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
 .anketa .hintline{font-size:13px;color:#9fb0b5}
@@ -108,7 +110,7 @@ footer a{color:var(--terracotta);text-decoration:none}
     <a href="pakety.html" class="here">Пакеты и цены</a>
     <a href="/#kak">Как работаю</a>
   </nav>
-  <a class="btn btn-main btn-sm" href="/#zakaz">Заказать</a>
+  <a class="btn btn-main btn-sm" href="#anketa">Заполнить анкету</a>
 </div></header>
 
 <main class="wrap">
@@ -133,6 +135,7 @@ footer a{color:var(--terracotta);text-decoration:none}
       <input id="fNiche" placeholder="Например: кондитерская, торты на заказ">
       <label for="fCity">Ваш город</label>
       <input id="fCity" placeholder="Определим автоматически - можно поправить">
+      <div class="hintline">Город определён автоматически. Если не ваш - впишите свой, цена пересчитается.</div>
       <label>Что должно быть на сайте</label>
       <div class="checks" id="checks"></div>
       <label for="fExample">Ссылка на сайт, который нравится (пример)</label>
@@ -140,16 +143,16 @@ footer a{color:var(--terracotta);text-decoration:none}
       <label for="fWish">Окно пожеланий</label>
       <textarea id="fWish" placeholder="Например: спокойные цвета, калькулятор цены, запись в WhatsApp"></textarea>
       <div class="actions">
-        <a class="btn btn-main btn-sm" id="sendMax" href="#" target="_blank" rel="noopener">Написать в MAX</a>
+        <a class="btn btn-main btn-sm" id="sendMax" href="#" target="_blank" rel="noopener">Отправить заявку</a>
         <a class="btn btn-dark btn-sm" id="sendTg" href="#" target="_blank" rel="noopener" style="background:#37464d">Telegram</a>
         <a class="btn btn-dark btn-sm" id="sendWa" href="#" target="_blank" rel="noopener" style="background:#37464d">WhatsApp</a>
       </div>
-      <div class="hintline" id="sendHint">Нажмёте - откроется мессенджер с готовым текстом.</div>
+      <div class="hintline" id="sendHint">Нажмёте - откроется чат со мной в MAX, текст заявки уже скопирован: просто вставьте и отправьте.</div>
     </form>
     <div class="tz" aria-live="polite">
-      <b>Так это прилетит мне</b>
+      <b>Текст заявки</b>
       <div class="msg" id="tzMsg"></div>
-      <div class="hint">Проверьте текст - и отправляйте. Никакой переписки «а что входит» не понадобится.</div>
+      <div class="hint">Это превью. Мне прилетит именно этот текст - проверьте перед отправкой.</div>
     </div>
   </div>
 </section>
@@ -217,8 +220,20 @@ var PAKETY = [
   }
 ];
 
-// Галочки «что должно быть на сайте»
-var BLOKI = ['Услуги и цены', 'Фото работ', 'Отзывы', 'Карта проезда', 'Квиз-форма', 'Онлайн-оплата', 'Каталог товаров'];
+// Галочки «что должно быть на сайте», по группам.
+// Подпись чипа целиком попадает в текст заявки.
+var GRUPPY = [
+  { nazv: 'Блоки',  chipy: ['Услуги и цены', 'Карта проезда', 'Квиз-форма', 'Онлайн-оплата', 'Каталог товаров'] },
+  { nazv: 'Фото',   chipy: ['Фото свои', 'Фото подобрать'] },
+  { nazv: 'Отзывы', chipy: ['Отзывы есть', 'Отзывы собрать с Карт'] },
+  { nazv: 'Тексты', chipy: ['Тексты напишу сам', 'Тексты нужно написать'] }
+];
+
+// Города-миллионники (для пересчёта цены, если посетитель вписал город руками).
+// Строки в нижнем регистре, ищем вхождение - «ростов» накроет и «Ростов-на-Дону».
+var MILLIONNIKI_RU = ['москва', 'санкт-петербург', 'питер', 'спб', 'новосибирск',
+  'екатеринбург', 'казань', 'нижний новгород', 'самара', 'омск', 'челябинск',
+  'ростов', 'уфа', 'красноярск', 'пермь', 'воронеж', 'волгоград', 'краснодар'];
 
 // ============================================================
 //  ДАЛЬШЕ - МЕХАНИКА, без необходимости не править
@@ -227,12 +242,21 @@ var BLOKI = ['Услуги и цены', 'Фото работ', 'Отзывы', 
 // Колонка цен по умолчанию - миллионник (запасной вариант из замысла:
 // если город не определился, не продаём дешевле).
 var kolonka = 'millionnik';
+var geoKolonka = 'millionnik'; // то, что ответил сервер (для возврата, если поле города очистили)
 var cityName = '';
+var geoLineHtml = '';
 var tekuschiPaket = 'standart';
 
 function rub(n){ return n.toLocaleString('ru-RU'); }
 function cena(p){ return rub(p[kolonka][0]) + ' - ' + rub(p[kolonka][1]) + ' ₽'; }
 function paketPoId(id){ return PAKETY.filter(function(p){ return p.id === id; })[0]; }
+function escHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function obnovitCeny(){
+  document.querySelectorAll('#packs .pack').forEach(function(el, i){
+    el.querySelector('.price').textContent = cena(PAKETY[i]);
+  });
+}
 
 // --- карточки пакетов ---
 (function risuemPakety(){
@@ -277,15 +301,23 @@ function vybratPaket(id){
   obnovitTZ();
 }
 
-// --- галочки блоков ---
+// --- галочки по группам ---
 (function risuemChecki(){
   var host = document.getElementById('checks');
-  BLOKI.forEach(function(nazv, i){
-    var b = document.createElement('button');
-    b.type = 'button'; b.textContent = nazv;
-    if (i < 2) b.classList.add('on');
-    b.addEventListener('click', function(){ b.classList.toggle('on'); obnovitTZ(); });
-    host.appendChild(b);
+  GRUPPY.forEach(function(g){
+    var row = document.createElement('div');
+    row.className = 'gruppa';
+    var cap = document.createElement('span');
+    cap.textContent = g.nazv;
+    row.appendChild(cap);
+    g.chipy.forEach(function(nazv){
+      var b = document.createElement('button');
+      b.type = 'button'; b.textContent = nazv;
+      if (nazv === 'Услуги и цены') b.classList.add('on');
+      b.addEventListener('click', function(){ b.classList.toggle('on'); obnovitTZ(); });
+      row.appendChild(b);
+    });
+    host.appendChild(row);
   });
 })();
 function vybrannyeBloki(){
@@ -334,28 +366,44 @@ document.getElementById('sendMax').addEventListener('click', function(){
     });
   } catch(e) {}
 });
-['fNiche','fCity','fExample','fWish'].forEach(function(id){
+['fNiche','fExample','fWish'].forEach(function(id){
   document.getElementById(id).addEventListener('input', obnovitTZ);
 });
-obnovitTZ();
+
+// --- ручная правка города: пересчитываем колонку цен ---
+(function sledimZaGorodom(){
+  var fCity = document.getElementById('fCity');
+  var line = document.getElementById('gorodLine');
+  fCity.addEventListener('input', function(){
+    var v = fCity.value.trim().toLowerCase();
+    if (!v) {
+      kolonka = geoKolonka;
+      if (geoLineHtml) line.innerHTML = geoLineHtml;
+    } else {
+      kolonka = 'region';
+      for (var i = 0; i < MILLIONNIKI_RU.length; i++) {
+        if (v.indexOf(MILLIONNIKI_RU[i]) !== -1) { kolonka = 'millionnik'; break; }
+      }
+      line.innerHTML = 'Ваш город: <b>&nbsp;' + escHtml(fCity.value.trim()) + '</b>&nbsp;- цена пересчитана';
+    }
+    obnovitCeny();
+    obnovitTZ();
+  });
+})();
 
 // --- автоопределение города через свою функцию на Vercel ---
 (function opredelimGorod(){
   var line = document.getElementById('gorodLine');
   function primenit(kol, gorod){
     kolonka = kol;
+    geoKolonka = kol;
     if (gorod) {
       cityName = gorod;
       var fCity = document.getElementById('fCity');
       if (!fCity.value.trim()) fCity.value = gorod;
     }
-    risuemPaketyPovtorno();
+    obnovitCeny();
     obnovitTZ();
-  }
-  function risuemPaketyPovtorno(){
-    document.querySelectorAll('#packs .pack').forEach(function(el, i){
-      el.querySelector('.price').textContent = cena(PAKETY[i]);
-    });
   }
   // По умолчанию уже показана колонка миллионника (см. выше)
   line.innerHTML = 'Показываем цены для вашего города';
@@ -365,7 +413,8 @@ obnovitTZ();
     .then(function(d){
       if (!d || !d.kolonka) return;
       if (d.opredelen && d.city) {
-        line.innerHTML = 'Ваш город: <b>&nbsp;' + d.city + '</b>&nbsp;- цена уже ваша';
+        line.innerHTML = 'Ваш город: <b>&nbsp;' + escHtml(d.city) + '</b>&nbsp;- цена уже ваша';
+        geoLineHtml = line.innerHTML;
       }
       primenit(d.kolonka === 'region' ? 'region' : 'millionnik', d.city || '');
     })
